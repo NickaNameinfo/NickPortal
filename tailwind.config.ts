@@ -11,7 +11,14 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        "primary-500": "var(--primary-500-color)",
+        "primary-500": "var(--primary-500)",
+        "primary-900": "var(--primary-900)",
+        "warning-900": "var(--warning-900)",
+      },
+      spacing: {
+        "24x22": "24px 22px",
+        "50": "50px",
+        "m100": "100px",
       },
       // ... Other theme extensions
     },
@@ -38,7 +45,7 @@ module.exports = {
         },
         dark: {
           backgroundColor: {
-            "primary-500": "var(--primary-500-color)",
+            "primary-500": "var(--primary-500)",
           },
           layout: {
             boxShadow: {
@@ -57,10 +64,14 @@ module.exports = {
           extend: "dark", // Extend from the dark theme
           colors: {
             primary: {
-              // Define your custom theme primary colors
-              // 500: "var(--primary-500-color)", // Corresponds to bg-primary-500
-              DEFAULT: "orange",
-              foreground: "#000000",
+              DEFAULT: "#4C86F9",
+              900: "var(--primary-900)",
+            },
+            warning: {
+              900: "var(--warning-900)",
+            },
+            secondary: {
+              DEFAULT: "#49A84CB8",
             },
             focus: "#BEF264",
             // ... Define other colors for your custom theme
