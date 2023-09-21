@@ -6,7 +6,7 @@ export const SideNavbar = () => {
       <div className="navBarStyle">
         <aside
           id="default-sidebar"
-          className="h-screen left-0 top-0 transition-transform w-64 z-40"
+          className="h-screen left-0 top-0 transition-transform z-40"
           aria-label="Sidebar"
         >
           <div className="h-full px-3 py-4 overflow-y-auto">
