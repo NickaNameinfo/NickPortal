@@ -2,12 +2,12 @@ import { Button, Select, SelectItem } from "@nextui-org/react";
 import * as React from "react";
 import "../style.scss";
 import { IconHome, IconInfo, IconProfile } from "../Icons";
-import { SideNavbar } from "./navbar";
+import { SideNavbar } from "../SideBar/page";
 
 export const NavBar = () => {
   return (
     <div className="grid grid-cols-12">
-      <div className="col-span-3">
+      <div className="col-span-3 pr-8">
         <SideNavbar />
       </div>
       <div className="col-span-9">
