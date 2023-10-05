@@ -20,14 +20,14 @@ export const SideNavbar = () => {
       <div className="navBarStyle ">
         <a
           href="#"
-          className="flex items-center justify-center border-b-2 border-b-white p-2 text-gray-900 dark:text-white group pb-7 pt-4"
+          className="flex items-center justify-center border-b-2 border-b-white text-gray-900 dark:text-white group logoCls"
         >
           <span className="">Logo</span>
         </a>
         <aside id="default-sidebar" className="" aria-label="Sidebar">
-          <div className="h-full px-3 py-4 overflow-y-auto custom-scrollbar">
+          <div className="h-full px-3 pb-4 pt-0 overflow-y-auto custom-scrollbar">
             <div className="scroll-content h-screen left-0 top-0 transition-transform z-40">
-              <ul className="space-y-2 font-medium">
+              <ul role="list" className="space-y-2 font-medium list-disc">
                 <li className="bg-white rounded-xl">
                   <a
                     href="#"
@@ -55,7 +55,10 @@ export const SideNavbar = () => {
                     </div>
                   </a>
                 </li>
-                <li className="bg-white rounded-xl">
+                <li
+                  className="rounded-xl"
+                  style={{ backgroundColor: "var(--secondary-500)" }}
+                >
                   <a
                     href="#"
                     className="p-4 flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -82,7 +85,10 @@ export const SideNavbar = () => {
                     </div>
                   </a>
                 </li>
-                <li className="bg-white rounded-xl">
+                <li
+                  className="rounded-xl hover:bg-gray-100"
+                  style={{ backgroundColor: "var(--secondary-500)" }}
+                >
                   <Accordion itemClasses={itemClasses}>
                     <AccordionItem
                       key="1"
@@ -140,7 +146,10 @@ export const SideNavbar = () => {
                     </AccordionItem>
                   </Accordion>
                 </li>
-                <li className="bg-white rounded-xl">
+                <li
+                  className="rounded-xl hover:bg-gray-100"
+                  style={{ backgroundColor: "var(--secondary-500)" }}
+                >
                   <Accordion itemClasses={itemClasses}>
                     <AccordionItem
                       key="2"
