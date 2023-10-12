@@ -4,6 +4,7 @@ import { Button, NextUIProvider, Switch } from "@nextui-org/react";
 import { NavBar } from "./Components/NavBar/page";
 import { SideNavbar } from "./Components/SideBar/page";
 import { ProductDetail } from "./Components/Product/ProductDetail";
+import StoreCard from "./Components/Card/StoreCard";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
           <div className="col-span-9">
             <NavBar />
             <ProductDetail />
+            <StoreCard/>
           </div>
         </div>
       </main>
