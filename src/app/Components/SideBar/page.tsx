@@ -9,7 +9,7 @@ import * as React from "react";
 
 export const SideNavbar = () => {
   const itemClasses = {
-    title: "font-normal text-medium text-black ms-2",
+    title: "font-normal text-sm text-black ms-1",
     indicator: "text-medium",
     content: "text-small px-2",
   };
@@ -26,12 +26,12 @@ export const SideNavbar = () => {
         </a>
         <aside id="default-sidebar" className="" aria-label="Sidebar">
           <div className="h-full px-3 pb-4 pt-0 overflow-y-auto custom-scrollbar">
-            <div className="scroll-content h-screen left-0 top-0 transition-transform z-40">
+            <div className="scroll-content h-fit left-0 top-0 transition-transform z-40">
               <ul role="list" className="space-y-2 font-medium list-disc">
                 <li className="bg-white rounded-xl">
                   <a
                     href="#"
-                    className="mt-7 p-4 flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                    className="mt-7 p-3 text-sm flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                   >
                     <div className="flex justify-between w-full items-center">
                       <p>For Me</p>
@@ -61,7 +61,7 @@ export const SideNavbar = () => {
                 >
                   <a
                     href="#"
-                    className="p-4 flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                    className="p-3 text-sm flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                   >
                     <div className="flex justify-between w-full items-center">
                       <p>Within 5Km</p>
@@ -89,7 +89,10 @@ export const SideNavbar = () => {
                   className="rounded-xl hover:bg-gray-100"
                   style={{ backgroundColor: "var(--secondary-500)" }}
                 >
-                  <Accordion itemClasses={itemClasses}>
+                  <Accordion
+                    itemClasses={itemClasses}
+                    className="customAccordion"
+                  >
                     <AccordionItem
                       key="1"
                       aria-label="Accordion 1"
@@ -150,14 +153,17 @@ export const SideNavbar = () => {
                   className="rounded-xl hover:bg-gray-100"
                   style={{ backgroundColor: "var(--secondary-500)" }}
                 >
-                  <Accordion itemClasses={itemClasses}>
+                  <Accordion
+                    itemClasses={itemClasses}
+                    className="customAccordion"
+                  >
                     <AccordionItem
                       key="2"
                       aria-label="Accordion 1"
                       title={
                         <div className="flex ">
                           <h3 className="mr-2">Other For You</h3>
-                          <p className="rounded-full bg-secondary text-secondary border-1 px-2 py-1 text-xs">
+                          <p className="rounded-full bg-secondary text-secondary border-1 px-1 py-0 leading-4 text-xs">
                             3
                           </p>
                         </div>
@@ -218,7 +224,7 @@ export const SideNavbar = () => {
                 <li className="bg-white rounded-xl">
                   <a
                     href="#"
-                    className="p-4 flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                    className="p-3 text-sm flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                   >
                     <div className="flex justify-between w-full items-center">
                       <p>Cash on Delivery</p>
@@ -245,7 +251,7 @@ export const SideNavbar = () => {
                 <li className="bg-white rounded-xl">
                   <a
                     href="#"
-                    className="p-4 flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                    className="p-3 text-sm flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                   >
                     <div className="flex justify-between w-full items-center">
                       <p>Pre Booking</p>
@@ -272,7 +278,7 @@ export const SideNavbar = () => {
                 <li className="bg-white rounded-xl">
                   <a
                     href="#"
-                    className="p-4 flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                    className="p-3 text-sm flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                   >
                     <div className="flex justify-between w-full items-center">
                       <p>Open Shop</p>
@@ -299,7 +305,7 @@ export const SideNavbar = () => {
                 <li className="bg-white rounded-xl">
                   <a
                     href="#"
-                    className="p-4 flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                    className="p-3 text-sm flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                   >
                     <div className="flex justify-between w-full items-center">
                       <p>Hospitals</p>
@@ -326,7 +332,7 @@ export const SideNavbar = () => {
                 <li className="bg-white rounded-xl">
                   <a
                     href="#"
-                    className="p-4 flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                    className="p-3 text-sm flex items-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                   >
                     <div className="flex justify-between w-full items-center">
                       <p>Hotels</p>
