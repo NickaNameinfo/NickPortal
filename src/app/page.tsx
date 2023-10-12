@@ -5,6 +5,7 @@ import { NavBar } from "./Components/NavBar/page";
 import { SideNavbar } from "./Components/SideBar/page";
 import { ProductDetail } from "./Components/Product/ProductDetail";
 import StoreCard from "./Components/Card/StoreCard";
+import GroceryCard from "./Components/Card/grocery";
 
 export default function Home() {
   return (
@@ -17,7 +18,9 @@ export default function Home() {
           <div className="col-span-9">
             <NavBar />
             <ProductDetail />
+            <GroceryCard />
             <StoreCard/>
+           
           </div>
         </div>
       </main>
