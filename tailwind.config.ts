@@ -14,11 +14,12 @@ module.exports = {
         "primary-500": "var(--primary-500)",
         "primary-900": "var(--primary-900)",
         "warning-900": "var(--warning-900)",
+        red: "rgba(255, 7, 0, 1)",
       },
       spacing: {
         "24x22": "24px 22px",
         "50": "50px",
-        "m100": "100px",
+        m100: "100px",
       },
       // ... Other theme extensions
     },
