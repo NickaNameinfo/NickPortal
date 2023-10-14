@@ -36,7 +36,7 @@ aside {
 }
 
 //Company name tag card
-.shodow{
+.shodow {
   border-radius: 20px;
 }
 .Storecard {
@@ -51,9 +51,9 @@ aside {
   .StortimingColor {
     color: #5b5555 !important;
   }
-  .cardHeader {
-    color: #000;
-  }
+  // .cardHeader {
+  //   color: var(--textColor-main)
+  // }
   .iconbox {
     width: 30px;
     height: 30px;
@@ -63,7 +63,14 @@ aside {
   .cartfootercolor {
     color: #3b3939;
   }
-  .grocarycartfootercolor{
-    color: #179D01;
+  .Pricecolor {
+    color: var(--textColor-priceColor);
+  }
+  .TextMaincolor {
+    color: var(--textColor-main);
+  }
+  .PrimiumCardFooterBg {
+    background-color: var(--background-white-50);
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.11);
   }
 }

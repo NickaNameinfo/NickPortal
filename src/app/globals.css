@@ -83,6 +83,7 @@ body {
   --background-blur: rgba(237, 234, 253, 0.5);
   --warning-900: #fef7e28a;
   --secondary-500: #e7ffe980;
+  --background-white-50:rgba(255, 255, 255, 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
