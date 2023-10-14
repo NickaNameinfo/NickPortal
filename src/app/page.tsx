@@ -4,6 +4,7 @@ import { Button, NextUIProvider, Switch } from "@nextui-org/react";
 import { NavBar } from "./Components/NavBar/page";
 import { SideNavbar } from "./Components/SideBar/page";
 import { ProductDetail } from "./Components/Product/ProductDetail";
+import PremiumCard from "./Components/Card/PremiumCard";
 import StoreCard from "./Components/Card/StoreCard";
 import GroceryCard from "./Components/Card/grocery";
 
@@ -18,8 +19,9 @@ export default function Home() {
           <div className="col-span-9">
             <NavBar />
             <ProductDetail />
-            <GroceryCard />
-            <StoreCard/>
+            {/* <GroceryCard /> */}
+            {/* <StoreCard />  */}
+            <PremiumCard />
            
           </div>
         </div>
