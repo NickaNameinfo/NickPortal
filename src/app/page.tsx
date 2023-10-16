@@ -7,6 +7,8 @@ import { ProductDetail } from "./Components/Product/ProductDetail";
 import PremiumCard from "./Components/Card/PremiumCard";
 import StoreCard from "./Components/Card/StoreCard";
 import GroceryCard from "./Components/Card/grocery";
+import ProductViewCard from "./Components/Card/ProductView";
+import StoreHeaderCard from "./Components/Card/StoreHeaderCard";
 
 export default function Home() {
   return (
@@ -21,8 +23,9 @@ export default function Home() {
             <ProductDetail />
             {/* <GroceryCard /> */}
             {/* <StoreCard />  */}
-            <PremiumCard />
-           
+            {/* <PremiumCard /> */}
+            {/* <ProductViewCard /> */}
+            <StoreHeaderCard/>
           </div>
         </div>
       </main>
