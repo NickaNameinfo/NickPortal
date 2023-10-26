@@ -8,6 +8,7 @@ import {
   IconNext,
   IconPrev,
   IconShare2,
+  IconStar,
   Iconwhatsup,
 } from "../Icons";
 import { Button, Image } from "@nextui-org/react";
@@ -15,18 +16,50 @@ import { Button, Image } from "@nextui-org/react";
 export const StoreHeaderCard = () => {
   return (
     <div className="grid grid-cols-2 gap-1 flex StorecardHeader min-h-[85px]">
-      <div className="flex ps-3">
-        <div className="w-2/12 items-center justify-end flex ">
-          <div className="rounded-lg py-2">
+      <div className="flex">
+        <div className="w-2/12 items-center justify-end flex">
+          <div
+            style={{
+              padding: "4px 0px 4px 14px",
+              maxHeight: "85px",
+              objectFit: "contain",
+              borderRadius: "10px",
+            }}
+          >
             <Image
+              isZoomed
               alt="Here no Image"
-              // height="100%"
               className="w-full object-cover "
               src="https://nextui-docs-v2.vercel.app/images/album-cover.png"
             />
           </div>
         </div>
-        <div className="w-10/12 flex items-center justify-end">sam</div>
+        <div className="w-10/12 ms-5">
+          <div className="mt-3 maincolor text-sm font-semibold items-center">
+            Lorem ipsum dolor consectetur Samz adipiscing...
+          </div>
+          <div className="flex items-center mt-4">
+            <div className="flex items-center">
+              <IconStar fill="#FF9900" />
+              <div className="ms-2 textColortimingColor text-sm font-normal">
+                4:2
+              </div>
+            </div>
+
+            <div className="ms-5 maincolor text-sm font-medium flex items-center">
+              Open :
+              <div className="textColortimingColor text-sm font-normal ms-1">
+                09: 30am-10:00pm
+              </div>
+            </div>
+            <div className="textColortimingColor text-sm font-normal ms-5 flex items-center">
+              Products :
+              <div className="textColortimingColor text-sm font-normal ms-1">
+                150
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="flex">
