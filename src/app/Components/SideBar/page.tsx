@@ -17,14 +17,14 @@ export const SideNavbar = () => {
   const [selectedKeys, setSelectedKeys] = React.useState(new Set(["1"]));
   return (
     <>
-      <div className="navBarStyle ">
+      <div className="navBarStyle \">
         <a
           href="#"
           className="flex items-center justify-center border-b-2 border-b-white text-gray-900 dark:text-white group logoCls"
         >
           <span className="">Logo</span>
         </a>
-        <aside id="default-sidebar" className="" aria-label="Sidebar">
+        <aside id="default-sidebar" className="h-[84vh]" aria-label="Sidebar">
           <div className="h-full px-3 pb-4 pt-0 overflow-y-auto custom-scrollbar">
             <div className="scroll-content h-fit left-0 top-0 transition-transform z-40">
               <ul role="list" className="space-y-2 font-medium list-disc">

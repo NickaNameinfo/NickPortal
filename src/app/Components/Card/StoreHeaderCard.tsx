@@ -15,7 +15,7 @@ import { Button, Image } from "@nextui-org/react";
 
 export const StoreHeaderCard = () => {
   return (
-    <div className="grid grid-cols-2 gap-1 flex StorecardHeader min-h-[85px]">
+    <div className="grid grid-cols-2 gap-1 flex StorecardHeader min-h-[85px] mb-3">
       <div className="flex">
         <div className="w-2/12 items-center justify-end flex">
           <div

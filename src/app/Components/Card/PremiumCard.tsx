@@ -8,10 +8,13 @@ import {
   IconTick,
   IconsEye,
 } from "../Icons";
+import StoreHeaderCard from "./StoreHeaderCard";
 
 export const PremiumCard = () => {
   return (
-    <div className="grid grid-cols-4 gap-2 mt-1">
+    <>
+      <StoreHeaderCard />
+      <div className="grid grid-cols-4 gap-2">
       <Card className="Storecard pt-3.5 px-3">
         <CardBody className="overflow-visible p-0 relative">
           <span className="bg-slate-700 z-50 absolute text-white text-xs font-medium px-2.5 py-1 rounded-ss-xl rounded-ee-xl dark:bg-gray-700 dark:text-gray-300">
@@ -261,6 +264,8 @@ export const PremiumCard = () => {
         </CardFooter>
       </Card>
     </div>
+    </>
+   
   );
 };
 export default PremiumCard;
