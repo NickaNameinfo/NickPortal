@@ -9,6 +9,9 @@ import StoreCard from "./Components/Card/StoreCard";
 import GroceryCard from "./Components/Card/grocery";
 import ProductViewCard from "./Components/Card/ProductView";
 import StoreHeaderCard from "./Components/Card/StoreHeaderCard";
+import { StoreList } from "./Components/Card/StoreList";
+import CompanyCard from "./Components/Card/companycard";
+import { InfoCard } from "./Components/Card/InfoCard";
 
 export default function Home() {
   return (
@@ -22,10 +25,14 @@ export default function Home() {
             <NavBar />
             {/* <ProductDetail /> */}
             <div className="h-[81vh] overflow-auto navBarStyle p-4 mt-3">
+              <StoreList />
               <StoreCard />
               <GroceryCard />
               <PremiumCard />
               <ProductViewCard />
+              <CompanyCard/>
+              <InfoCard/>
+             
             </div>
           </div>
         </div>

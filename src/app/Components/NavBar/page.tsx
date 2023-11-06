@@ -1,11 +1,15 @@
-import { Button, Select, SelectItem } from "@nextui-org/react";
+import { Button, Select, SelectItem, useDisclosure } from "@nextui-org/react";
 import * as React from "react";
 import "../style.scss";
 import { IconHome, IconInfo, IconProfile } from "../Icons";
 import { SideNavbar } from "../SideBar/page";
+import { InfoCard } from "../Card/InfoCard";
 
 export const NavBar = () => {
+  
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
+    <>
     <div className="grid grid-cols-12 justify-between navBarStyle gap-4 items-center p-3">
       <div className="grid grid-cols-12 gap-2 col-span-4 items-center">
         <div className="col-span-2 text-center">
@@ -42,7 +46,8 @@ export const NavBar = () => {
           </Button>
         </div>
         <div>
-          <Button
+          <Button 
+           onPress={() => onOpen()}
             isIconOnly
             color="warning"
             aria-label="Like"
@@ -63,5 +68,7 @@ export const NavBar = () => {
         </div>
       </div>
     </div>
+    <InfoCard isOpen={isOpen} onClose={onClose} />
+    </>
   );
 };
