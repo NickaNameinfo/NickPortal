@@ -50,7 +50,7 @@ aside {
 
   .StortimingColor {
     // color: #5b5555 !important;
-    color: var( --textColor-timingColor);
+    color: var(--textColor-timingColor);
   }
   // .cardHeader {
   //   color: var(--textColor-main)
@@ -114,12 +114,15 @@ aside {
 }
 
 .bgnone {
-  background-color:rgba(255, 0, 0, 0);
+  background-color: rgba(255, 0, 0, 0);
 }
-.maincolor{
-  color: var( --textColor-main);
+.maincolor {
+  color: var(--textColor-main);
 }
 .textColortimingColor {
   // color: #5b5555 !important;
-  color: var( --textColor-timingColor);
+  color: var(--textColor-timingColor);
+}
+.storeListDivider {
+  background-color: var(--cart-mainBG);
 }
