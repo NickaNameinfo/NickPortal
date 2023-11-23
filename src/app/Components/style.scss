@@ -126,3 +126,18 @@ aside {
 .storeListDivider {
   background-color: var(--cart-mainBG);
 }
+.BuycarBg {
+  background-color: var(--cart-mainBG);
+  border-radius: 10px;
+}
+.addsub {
+  min-width: 125px;
+  min-height: 40px;
+  border-radius: 10px;
+}
+.paymetoptionBg {
+  background-color: var(--bg-white);
+}
+.paymetoption {
+  color: var(--textColor-light);
+}
