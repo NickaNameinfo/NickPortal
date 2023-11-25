@@ -40,10 +40,10 @@ export const GroceryCard = () => {
           </CardBody>
           <CardFooter className="p-0">
             <div className="grid grid-cols-1 w-full">
-              <div className="font-semibold mt-3 text-sm  TextMaincolor">
+              <div className="font-semibold mt-3 text-sm  TextMaincolor justify-start flex">
                 Apple1 - Shimla
               </div>
-              <div className="font-normal text-sm mt-2  TextMaincolor">
+              <div className="font-normal text-sm mt-2  TextMaincolor justify-start flex">
                 4 pcs (Approx. 550 - 640 g)
               </div>
               <div className="w-full flex justify-between mt-3 mb-3">
@@ -58,14 +58,14 @@ export const GroceryCard = () => {
         <Card
           isPressable
           onPress={() => onOpen()}
-          className="Storecard pt-3.5 px-3"
+          className="Storecard pt-3.5 px-3 cursor-pointer"
         >
           <CardBody className="overflow-visible p-0 relative">
             <span className="bg-slate-700 z-50 absolute text-white text-xs font-medium px-2.5 py-1 rounded-ss-xl rounded-ee-xl dark:bg-gray-700 dark:text-gray-300">
               Cod Available
             </span>
             <span className="bg-slate-700 z-50 right-0 absolute text-white text-xs font-medium px-2.5 py-1 rounded-se-xl rounded-es-xl dark:bg-gray-700 dark:text-gray-300">
-              5KM
+              15KMsdas
             </span>
             <Image
               isZoomed
@@ -79,10 +79,10 @@ export const GroceryCard = () => {
           </CardBody>
           <CardFooter className="p-0">
             <div className="grid grid-cols-1 w-full">
-              <div className="font-semibold mt-3 text-sm  TextMaincolor">
+              <div className="font-semibold mt-3 text-sm  TextMaincolor justify-start flex">
                 Apple1 - Shimla
               </div>
-              <div className="font-normal text-sm mt-2  TextMaincolor">
+              <div className="font-normal text-sm mt-2  TextMaincolor justify-start flex">
                 4 pcs (Approx. 550 - 640 g)
               </div>
               <div className="w-full flex justify-between mt-3 mb-3">
@@ -97,14 +97,14 @@ export const GroceryCard = () => {
         <Card
           isPressable
           onPress={() => onOpen()}
-          className="Storecard pt-3.5 px-3"
+          className="Storecard pt-3.5 px-3 cursor-pointer"
         >
           <CardBody className="overflow-visible p-0 relative">
             <span className="bg-slate-700 z-50 absolute text-white text-xs font-medium px-2.5 py-1 rounded-ss-xl rounded-ee-xl dark:bg-gray-700 dark:text-gray-300">
               Cod Available
             </span>
             <span className="bg-slate-700 z-50 right-0 absolute text-white text-xs font-medium px-2.5 py-1 rounded-se-xl rounded-es-xl dark:bg-gray-700 dark:text-gray-300">
-              5KM
+              15KMsdas
             </span>
             <Image
               isZoomed
@@ -118,10 +118,10 @@ export const GroceryCard = () => {
           </CardBody>
           <CardFooter className="p-0">
             <div className="grid grid-cols-1 w-full">
-              <div className="font-semibold mt-3 text-sm  TextMaincolor">
+              <div className="font-semibold mt-3 text-sm  TextMaincolor justify-start flex">
                 Apple1 - Shimla
               </div>
-              <div className="font-normal text-sm mt-2  TextMaincolor">
+              <div className="font-normal text-sm mt-2  TextMaincolor justify-start flex">
                 4 pcs (Approx. 550 - 640 g)
               </div>
               <div className="w-full flex justify-between mt-3 mb-3">
@@ -136,14 +136,14 @@ export const GroceryCard = () => {
         <Card
           isPressable
           onPress={() => onOpen()}
-          className="Storecard pt-3.5 px-3"
+          className="Storecard pt-3.5 px-3 cursor-pointer"
         >
           <CardBody className="overflow-visible p-0 relative">
             <span className="bg-slate-700 z-50 absolute text-white text-xs font-medium px-2.5 py-1 rounded-ss-xl rounded-ee-xl dark:bg-gray-700 dark:text-gray-300">
               Cod Available
             </span>
             <span className="bg-slate-700 z-50 right-0 absolute text-white text-xs font-medium px-2.5 py-1 rounded-se-xl rounded-es-xl dark:bg-gray-700 dark:text-gray-300">
-              5KM
+              15KMsdas
             </span>
             <Image
               isZoomed
@@ -157,10 +157,10 @@ export const GroceryCard = () => {
           </CardBody>
           <CardFooter className="p-0">
             <div className="grid grid-cols-1 w-full">
-              <div className="font-semibold mt-3 text-sm  TextMaincolor">
+              <div className="font-semibold mt-3 text-sm  TextMaincolor justify-start flex">
                 Apple1 - Shimla
               </div>
-              <div className="font-normal text-sm mt-2  TextMaincolor">
+              <div className="font-normal text-sm mt-2  TextMaincolor justify-start flex">
                 4 pcs (Approx. 550 - 640 g)
               </div>
               <div className="w-full flex justify-between mt-3 mb-3">

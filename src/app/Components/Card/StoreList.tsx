@@ -4,6 +4,11 @@ import {
   ModalContent,
   ModalHeader,
   Divider,
+  Popover,
+  Button,
+  PopoverTrigger,
+  PopoverContent,
+  Input,
 } from "@nextui-org/react";
 import React from "react";
 import { IconsEye } from "../Icons";
@@ -26,47 +31,169 @@ export const StoreList = (props: {
               Store List
             </ModalHeader>
             <Divider className="storeListDivider" />
-            <ModalBody className="p-0 m-0 mt-3">
+            <ModalBody className="p-0 m-0 mt-1 w-full">
               <div className="flex items-center w-full  cursor-pointer">
-                <div className="font-normal text-sm text-black w-11/12">
-                  Krishna Stores
-                </div>
-                <div className="w-1/12 justify-end flex">
-                  <IconsEye fill="#4C86F9" />
-                </div>
+                <Popover placement="right" className="ms-5">
+                  <PopoverTrigger className="w-full">
+                    <Button
+                      className="bgnone p-0 m-0 text-small font-normal flex items-center justify-between"
+                      isIconOnly
+                      size="sm"
+                    >
+                      <p> Krishna Stores</p>
+                      <p>
+                        <IconsEye fill="#4C86F9" />
+                      </p>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="min-w-[290px]">
+                    <div className="px-1  ">
+                      <div className="text-small font-bold">Store Card</div>
+                      <div className="text-tiny">
+                        <Button>
+                          Samz
+                          <IconsEye fill="#49A84C" />
+                        </Button>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </div>
 
-              <div className="flex items-center w-full  cursor-pointer ">
-                <div className="font-normal text-sm text-black w-11/12">
-                  Samz Stores
-                </div>
-                <div className="w-1/12 justify-end flex">
-                  <IconsEye fill="#49A84C" />
-                </div>
+              <div className="flex items-center w-full  cursor-pointer">
+                <Popover placement="right" className="ms-5">
+                  <PopoverTrigger className="w-full">
+                    <Button
+                      className="bgnone p-0 m-0 text-small font-normal flex items-center justify-between"
+                      isIconOnly
+                      size="sm"
+                    >
+                      <p> Krishna Stores</p>
+                      <p>
+                        <IconsEye fill="#4C86F9" />
+                      </p>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="min-w-[290px]">
+                    <div className="px-1  ">
+                      <div className="text-small font-bold">Store Card</div>
+                      <div className="text-tiny">
+                        <Button>
+                          Samz
+                          <IconsEye fill="#49A84C" />
+                        </Button>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </div>
-              <div className="flex items-center w-full  cursor-pointer ">
-                <div className="font-normal text-sm text-black w-11/12">
-                  Krishna Stores
-                </div>
-                <div className="w-1/12 justify-end flex">
-                  <IconsEye fill="#49A84C" />
-                </div>
+              <div className="flex items-center w-full  cursor-pointer">
+                <Popover placement="right" className="ms-5">
+                  <PopoverTrigger className="w-full">
+                    <Button
+                      className="bgnone p-0 m-0 text-small font-normal flex items-center justify-between"
+                      isIconOnly
+                      size="sm"
+                    >
+                      <p> Krishna Stores</p>
+                      <p>
+                        <IconsEye fill="#4C86F9" />
+                      </p>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="min-w-[290px]">
+                    <div className="px-1  ">
+                      <div className="text-small font-bold">Store Card</div>
+                      <div className="text-tiny">
+                        <Button>
+                          Samz
+                          <IconsEye fill="#49A84C" />
+                        </Button>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </div>
-              <div className="flex items-center w-full  cursor-pointer ">
-                <div className="font-normal text-sm text-black w-11/12">
-                  Krishna Stores
-                </div>
-                <div className="w-1/12 justify-end flex">
-                  <IconsEye fill="#49A84C" />
-                </div>
+              <div className="flex items-center w-full  cursor-pointer">
+                <Popover placement="right" className="ms-5">
+                  <PopoverTrigger className="w-full">
+                    <Button
+                      className="bgnone p-0 m-0 text-small font-normal flex items-center justify-between"
+                      isIconOnly
+                      size="sm"
+                    >
+                      <p> Krishna Stores</p>
+                      <p>
+                        <IconsEye fill="#4C86F9" />
+                      </p>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="min-w-[290px]">
+                    <div className="px-1  ">
+                      <div className="text-small font-bold">Store Card</div>
+                      <div className="text-tiny">
+                        <Button>
+                          Samz
+                          <IconsEye fill="#49A84C" />
+                        </Button>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </div>
-              <div className="flex items-center w-full  cursor-pointer ">
-                <div className="font-normal text-sm text-black w-11/12">
-                  Krishna Stores
-                </div>
-                <div className="w-1/12 justify-end flex">
-                  <IconsEye fill="#49A84C" />
-                </div>
+              <div className="flex items-center w-full  cursor-pointer">
+                <Popover placement="right" className="ms-5">
+                  <PopoverTrigger className="w-full">
+                    <Button
+                      className="bgnone p-0 m-0 text-small font-normal flex items-center justify-between"
+                      isIconOnly
+                      size="sm"
+                    >
+                      <p> Krishna Stores</p>
+                      <p>
+                        <IconsEye fill="#4C86F9" />
+                      </p>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="min-w-[290px]">
+                    <div className="px-1  ">
+                      <div className="text-small font-bold">Store Card</div>
+                      <div className="text-tiny">
+                        <Button>
+                          Samz
+                          <IconsEye fill="#49A84C" />
+                        </Button>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              </div>
+              <div className="flex items-center w-full  cursor-pointer">
+                <Popover placement="right" className="ms-5">
+                  <PopoverTrigger className="w-full">
+                    <Button
+                      className="bgnone p-0 m-0 text-small font-normal flex items-center justify-between"
+                      isIconOnly
+                      size="sm"
+                    >
+                      <p> Krishna Stores</p>
+                      <p>
+                        <IconsEye fill="#4C86F9" />
+                      </p>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="min-w-[290px]">
+                    <div className="px-1  ">
+                      <div className="text-small font-bold">Store Card</div>
+                      <div className="text-tiny">
+                        <Button>
+                          Samz
+                          <IconsEye fill="#49A84C" />
+                        </Button>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </div>
             </ModalBody>
           </>
