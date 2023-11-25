@@ -14,6 +14,7 @@ import CompanyCard from "./Components/Card/companycard";
 import { InfoCard } from "./Components/Card/InfoCard";
 import AccordionComp from "./Components/Card/Accordion";
 import { BuyCard } from "./Components/Card/BuyCard";
+import VisitCard from "./Components/VisitCard/VisitCard";
 
 export default function Home() {
   return (
@@ -36,6 +37,7 @@ export default function Home() {
                   <ProductViewCard />
                   <CompanyCard />
                   <InfoCard />
+                  <VisitCard />
                 </div>
               </div>
             </div>

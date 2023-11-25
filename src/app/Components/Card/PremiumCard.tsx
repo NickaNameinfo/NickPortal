@@ -11,6 +11,9 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
   useDisclosure,
 } from "@nextui-org/react";
 import {
@@ -108,17 +111,48 @@ export const PremiumCard = () => {
                         className="m-3 cursor-pointer"
                       />
                     </Button>
-                    <Button
-                      className="bgnone p-0 m-0"
-                      radius="full"
-                      isIconOnly
-                      size="lg"
+
+                    <Popover
+                      placement="top"
+                      showArrow={true}
+                      shouldFlip={true}
+                      className="p-0 m-0"
                     >
-                      <IconShoptrolley
-                        fill="#49A84C"
-                        className="m-3 cursor-pointer"
-                      />
-                    </Button>
+                      <PopoverTrigger>
+                        <Button
+                          className="bgnone p-0 m-0"
+                          radius="full"
+                          isIconOnly
+                          size="lg"
+                        >
+                          <IconShoptrolley
+                            fill="#49A84C"
+                            className="m-3 cursor-pointer"
+                          />
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="addsub bg-gray-200 ">
+                        <div className="flex justify-between items-center">
+                          <Button
+                            className="bgnone p-0 m-0 text-base font-semibold"
+                            radius="full"
+                            isIconOnly
+                            size="md"
+                          >
+                            -
+                          </Button>
+                          <p className="bgnonetext-sm font-semibold px-2 ">8</p>
+                          <Button
+                            className="bgnone p-0 m-0 text-base font-semibold "
+                            radius="full"
+                            isIconOnly
+                            size="md"
+                          >
+                            +
+                          </Button>
+                        </div>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
               </div>

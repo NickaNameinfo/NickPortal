@@ -6,6 +6,7 @@ import {
   CardBody,
   Image,
   CardFooter,
+  Button,
 } from "@nextui-org/react";
 import {
   IconCall,
@@ -24,7 +25,7 @@ export const StoreCard = () => {
             Company Name tag
           </p>
         </CardHeader>
-        <CardBody className="overflow-visible pt-2 pb-3.5 ps-2 pe-1 ">
+        <CardBody className="overflow-visible pt-2 pb-3.5 ps-2 pe-2 ">
           <div className="grid grid-cols-12">
             <div className="col-span-5">
               <Image
@@ -37,12 +38,12 @@ export const StoreCard = () => {
                 src="https://nextui.org/images/hero-card-complete.jpeg"
               />
             </div>
-            <div className="col-span-7 ps-2">
+            <div className="col-span-7 ps-3">
               <h2 className="font-medium text-sm TextMaincolor">Open :</h2>
-              <p className="font-normal text-xs StortimingColor tracking-tight mt-1">
+              <p className="font-normal text-xs StortimingColor tracking-tight mt-2">
                 09: 30am-10:00pm
               </p>
-              <div className="flex items-center ">
+              <div className="flex items-center mt-2">
                 <p className="mt-1 ">
                   <IconStar fill="#FF9900" />
                 </p>
@@ -50,23 +51,38 @@ export const StoreCard = () => {
                   4.3
                 </p>
               </div>
-              <div className="flex flex-row">
-                <p className="flex mt-1 justify-between basis-9/12 pe-2 items-center">
-                  <p className="cursor-pointer">
+              <div className="flex flex-row ">
+                <div className="flex  justify-between basis-9/12  items-center">
+                  <p className="cursor-pointer pe-1">
                     <Iconwhatsup fill="#6942CB" />
                   </p>
-                  <p className="cursor-pointer">
+                  <Button
+                      className="bgnone p-0 m-0"
+                      radius="full"
+                      isIconOnly
+                      size="sm"
+                    >
                     <IconCall fill="#6942CB" />
-                  </p>
-                  <p className="cursor-pointer">
+                  </Button>
+                  <Button
+                      className="bgnone p-0 m-0"
+                      radius="full"
+                      isIconOnly
+                      size="sm"
+                    >
                     <IconMap fill="#6942CB" />
-                  </p>
-                  <p className="cursor-pointer">
+                  </Button>
+                  <Button
+                      className="bgnone p-0 m-0" 
+                      radius="full"
+                      isIconOnly
+                      size="sm"
+                    >
                     <IconMapRound fill="#6942CB" />
-                  </p>
-                </p>
+                  </Button>
+                </div>
 
-                <div className="mt-1 basis-3/12 justify-center flex">
+                <div className="mt-0 basis-3/12 justify-end flex pe-0">
                   <div className="iconbox flex items-center justify-center cursor-pointer">
                     <IconstoreCardNext fill="#6942CB" />
                   </div>
@@ -76,14 +92,14 @@ export const StoreCard = () => {
           </div>
         </CardBody>
 
-        <CardFooter className="p-0">
-          <div className="w-full flex justify-between ps-2 pe-1 pb-3">
-            <p className=" font-normal text-sm  TextMaincolor ">
+        <CardFooter className="p-0 m-0">
+          <div className="w-full px-2.5  pb-3 flex">
+            <div className="font-normal text-sm  TextMaincolor w-6/12">
               Products : 150
-            </p>
-            <p className=" font-normal text-sm  TextMaincolor ">
+            </div>
+            <div className="font-normal text-sm  TextMaincolor w-6/12 justify-end flex">
               Near By : 15 Km
-            </p>
+            </div>
           </div>
         </CardFooter>
       </Card>
@@ -93,7 +109,7 @@ export const StoreCard = () => {
             Company Name tag
           </p>
         </CardHeader>
-        <CardBody className="overflow-visible pt-2 pb-3.5 ps-2 pe-1 ">
+        <CardBody className="overflow-visible pt-2 pb-3.5 ps-2 pe-2 ">
           <div className="grid grid-cols-12">
             <div className="col-span-5">
               <Image
@@ -106,12 +122,12 @@ export const StoreCard = () => {
                 src="https://nextui.org/images/hero-card-complete.jpeg"
               />
             </div>
-            <div className="col-span-7 ps-2">
+            <div className="col-span-7 ps-3">
               <h2 className="font-medium text-sm TextMaincolor">Open :</h2>
-              <p className="font-normal text-xs StortimingColor tracking-tight mt-1">
+              <p className="font-normal text-xs StortimingColor tracking-tight mt-2">
                 09: 30am-10:00pm
               </p>
-              <div className="flex items-center ">
+              <div className="flex items-center mt-2">
                 <p className="mt-1 ">
                   <IconStar fill="#FF9900" />
                 </p>
@@ -119,23 +135,38 @@ export const StoreCard = () => {
                   4.3
                 </p>
               </div>
-              <div className="flex flex-row">
-                <p className="flex mt-1 justify-between basis-9/12 pe-2 items-center">
-                  <p className="cursor-pointer">
+              <div className="flex flex-row ">
+                <div className="flex  justify-between basis-9/12  items-center">
+                  <p className="cursor-pointer pe-1">
                     <Iconwhatsup fill="#6942CB" />
                   </p>
-                  <p className="cursor-pointer">
+                  <Button
+                      className="bgnone p-0 m-0"
+                      radius="full"
+                      isIconOnly
+                      size="sm"
+                    >
                     <IconCall fill="#6942CB" />
-                  </p>
-                  <p className="cursor-pointer">
+                  </Button>
+                  <Button
+                      className="bgnone p-0 m-0"
+                      radius="full"
+                      isIconOnly
+                      size="sm"
+                    >
                     <IconMap fill="#6942CB" />
-                  </p>
-                  <p className="cursor-pointer">
+                  </Button>
+                  <Button
+                      className="bgnone p-0 m-0"
+                      radius="full"
+                      isIconOnly
+                      size="sm"
+                    >
                     <IconMapRound fill="#6942CB" />
-                  </p>
-                </p>
+                  </Button>
+                </div>
 
-                <div className="mt-1 basis-3/12 justify-center flex">
+                <div className="mt-0 basis-3/12 justify-end flex pe-0">
                   <div className="iconbox flex items-center justify-center cursor-pointer">
                     <IconstoreCardNext fill="#6942CB" />
                   </div>
@@ -145,14 +176,14 @@ export const StoreCard = () => {
           </div>
         </CardBody>
 
-        <CardFooter className="p-0">
-          <div className="w-full flex justify-between ps-2 pe-1 pb-3">
-            <p className=" font-normal text-sm  TextMaincolor ">
+        <CardFooter className="p-0 m-0">
+          <div className="w-full px-2.5  pb-3 flex">
+            <div className="font-normal text-sm  TextMaincolor w-6/12">
               Products : 150
-            </p>
-            <p className=" font-normal text-sm  TextMaincolor ">
+            </div>
+            <div className="font-normal text-sm  TextMaincolor w-6/12 justify-end flex">
               Near By : 15 Km
-            </p>
+            </div>
           </div>
         </CardFooter>
       </Card>
@@ -162,7 +193,7 @@ export const StoreCard = () => {
             Company Name tag
           </p>
         </CardHeader>
-        <CardBody className="overflow-visible pt-2 pb-3.5 ps-2 pe-1 ">
+        <CardBody className="overflow-visible pt-2 pb-3.5 ps-2 pe-2 ">
           <div className="grid grid-cols-12">
             <div className="col-span-5">
               <Image
@@ -175,12 +206,12 @@ export const StoreCard = () => {
                 src="https://nextui.org/images/hero-card-complete.jpeg"
               />
             </div>
-            <div className="col-span-7 ps-2">
+            <div className="col-span-7 ps-3">
               <h2 className="font-medium text-sm TextMaincolor">Open :</h2>
-              <p className="font-normal text-xs StortimingColor tracking-tight mt-1">
+              <p className="font-normal text-xs StortimingColor tracking-tight mt-2">
                 09: 30am-10:00pm
               </p>
-              <div className="flex items-center ">
+              <div className="flex items-center mt-2">
                 <p className="mt-1 ">
                   <IconStar fill="#FF9900" />
                 </p>
@@ -188,23 +219,38 @@ export const StoreCard = () => {
                   4.3
                 </p>
               </div>
-              <div className="flex flex-row">
-                <p className="flex mt-1 justify-between basis-9/12 pe-2 items-center">
-                  <p className="cursor-pointer">
+              <div className="flex flex-row ">
+                <div className="flex  justify-between basis-9/12  items-center">
+                  <p className="cursor-pointer pe-1">
                     <Iconwhatsup fill="#6942CB" />
                   </p>
-                  <p className="cursor-pointer">
+                  <Button
+                      className="bgnone p-0 m-0"
+                      radius="full"
+                      isIconOnly
+                      size="sm"
+                    >
                     <IconCall fill="#6942CB" />
-                  </p>
-                  <p className="cursor-pointer">
+                  </Button>
+                  <Button
+                      className="bgnone p-0 m-0"
+                      radius="full"
+                      isIconOnly
+                      size="sm"
+                    >
                     <IconMap fill="#6942CB" />
-                  </p>
-                  <p className="cursor-pointer">
+                  </Button>
+                  <Button
+                      className="bgnone p-0 m-0"
+                      radius="full"
+                      isIconOnly
+                      size="sm"
+                    >
                     <IconMapRound fill="#6942CB" />
-                  </p>
-                </p>
+                  </Button>
+                </div>
 
-                <div className="mt-1 basis-3/12 justify-center flex">
+                <div className="mt-0 basis-3/12 justify-end flex pe-0">
                   <div className="iconbox flex items-center justify-center cursor-pointer">
                     <IconstoreCardNext fill="#6942CB" />
                   </div>
@@ -214,17 +260,19 @@ export const StoreCard = () => {
           </div>
         </CardBody>
 
-        <CardFooter className="p-0">
-          <div className="w-full flex justify-between ps-2 pe-1 pb-3">
-            <p className=" font-normal text-sm  TextMaincolor ">
+        <CardFooter className="p-0 m-0">
+          <div className="w-full px-2.5  pb-3 flex">
+            <div className="font-normal text-sm  TextMaincolor w-6/12">
               Products : 150
-            </p>
-            <p className=" font-normal text-sm  TextMaincolor ">
+            </div>
+            <div className="font-normal text-sm  TextMaincolor w-6/12 justify-end flex">
               Near By : 15 Km
-            </p>
+            </div>
           </div>
         </CardFooter>
       </Card>
+      
+     
     </div>
   );
 };
