@@ -17,7 +17,7 @@ export const SideNavbar = () => {
   const [selectedKeys, setSelectedKeys] = React.useState(new Set(["1"]));
   return (
     <>
-      <div className="navBarStyle \">
+      <div className="navBarStyle">
         <a
           href="#"
           className="flex items-center justify-center border-b-2 border-b-white text-gray-900 dark:text-white group logoCls"
