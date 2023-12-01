@@ -15,6 +15,8 @@ import { InfoCard } from "./Components/Card/InfoCard";
 import AccordionComp from "./Components/Card/Accordion";
 import { BuyCard } from "./Components/Card/BuyCard";
 import VisitCard from "./Components/VisitCard/VisitCard";
+import { StoreLoginSideBar } from "./Components/SideBar/Storeloginsidebar";
+import TableList from "./Components/Table/TableList";
 
 export default function Home() {
   return (
@@ -22,7 +24,8 @@ export default function Home() {
           <main className="mytheme text-foreground overflow-hidden p-4">
             <div className="flex flex-row">
               <div className="w-1/4 md:w-1/3 lg:w-1/5">
-                <SideNavbar />
+                {/* <SideNavbar /> */}
+                <StoreLoginSideBar/>
               </div>
               <div className="w-1/4 md:w-2/3 lg:w-4/5 px-3 custom-scrollbar">
                 <NavBar />
@@ -38,6 +41,7 @@ export default function Home() {
                   <CompanyCard />
                   <InfoCard />
                   <VisitCard />
+                  <TableList/>
                 </div>
               </div>
             </div>
