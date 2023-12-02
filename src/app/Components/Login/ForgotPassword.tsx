@@ -11,7 +11,7 @@ import {
   Input,
   Link,
 } from "@nextui-org/react";
-// import { IconForgotSVG, IconLogin } from "../Icons";
+import { IconForgotSVG, IconLogin } from "../Icons";
 import { OTPPage } from "./Otp";
 
 export const ForgotPassword = () => {
@@ -38,7 +38,7 @@ export const ForgotPassword = () => {
             <>
               <ModalHeader className="flex self-center flex-col gap-1">
                 <div>
-                  {/* <IconForgotSVG width="180px" height="180px" /> */}
+                  <IconForgotSVG width="180px" height="180px" />
                 </div>
                 <div className="self-center">Forgot password</div>
               </ModalHeader>
