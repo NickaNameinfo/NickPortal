@@ -4,6 +4,7 @@ import "../style.scss";
 import { IconHome, IconInfo, IconProfile } from "../Icons";
 import { SideNavbar } from "../SideBar/page";
 import { InfoCard } from "../Card/InfoCard";
+import { Login } from "../Login/Login";
 
 export const NavBar = () => {
   
@@ -57,14 +58,7 @@ export const NavBar = () => {
           </Button>
         </div>
         <div>
-          <Button
-            isIconOnly
-            color="primary"
-            className="bg-primary-900"
-            aria-label="Take a photo"
-          >
-            <IconProfile />
-          </Button>
+        <Login/>
         </div>
       </div>
     </div>

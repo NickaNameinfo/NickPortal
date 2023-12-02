@@ -11,16 +11,26 @@ import {
   Input,
   Link,
 } from "@nextui-org/react";
-import { IconLogin, IconLoginSVG } from "../Icons";
+import { IconLogin, IconLoginSVG, IconProfile } from "../Icons";
+import { ForgotPassword } from "./ForgotPassword";
 
 export const Login = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <>
-      <Button onPress={onOpen} color="primary">
-        Open Modal
+      <Button
+        isIconOnly
+        color="primary"
+        className="bg-primary-900"
+        aria-label="Take a photo"
+        onPress={onOpen}
+      >
+        <IconProfile />
       </Button>
+      {/* <Button onPress={onOpen} color="primary">
+        Login
+      </Button> */}
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}
@@ -32,7 +42,7 @@ export const Login = () => {
             <>
               <ModalHeader className="flex self-center flex-col gap-1">
                 <div>
-                  <IconLoginSVG width="300px" height="300px" />
+                  <IconLoginSVG width="180px" height="180px" />
                 </div>
                 <div className="self-center">Log in</div>
               </ModalHeader>
@@ -60,21 +70,19 @@ export const Login = () => {
                   >
                     Remember me
                   </Checkbox>
-                  <Link color="primary" href="#" size="sm">
-                    Forgot password?
-                  </Link>
+                  <ForgotPassword />
                 </div>
                 <Button color="primary" onPress={onClose}>
                   LOGIN <IconLogin fill="white" />
                 </Button>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="flat" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Sign in
-                </Button>
+                <div className="flex items-center">
+                  <p className="pe-2">Not A Member ? </p>
+                  <Button color="primary" onPress={onClose}>
+                    Register Now
+                  </Button>
+                </div>
               </ModalFooter>
             </>
           )}

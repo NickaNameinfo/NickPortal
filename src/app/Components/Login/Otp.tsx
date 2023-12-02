@@ -11,7 +11,7 @@ import {
   Input,
   Link,
 } from "@nextui-org/react";
-import { IconLogin } from "../Icons";
+import { IconLogin, IconOTPSVG } from "../Icons";
 
 export const OTPPage = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -32,7 +32,7 @@ export const OTPPage = () => {
             <>
               <ModalHeader className="flex self-center flex-col gap-1">
                 <div>
-                  {/* <IconOTPSVG width="180px" height="180px" /> */}
+                  <IconOTPSVG width="180px" height="180px" />
                 </div>
                 <div className="self-center">Enter OTP</div>
               </ModalHeader>
