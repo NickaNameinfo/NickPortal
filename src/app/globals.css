@@ -87,6 +87,7 @@ body {
   --divider-gray: #c8c5c5;
   --addsub-white: #d9d9d9;
   --bg-white: #ffffff;
+  --bg-input: #e9f0ff;
 }
 
 @media (prefers-color-scheme: dark) {
