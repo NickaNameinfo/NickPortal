@@ -1,85 +1,56 @@
 import React from "react";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-  Checkbox,
-  Input,
-  Link,
-} from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import { IconLogin, IconOTPSVG } from "../Icons";
 
 export const OTPPage = () => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [otpValues, setOtpValues] = React.useState(["", "", "", ""]);
 
+  const handleInputChange = (index, value) => {
+    // Update the values array with the new digit
+    const newValues = [...otpValues];
+    newValues[index] = value;
+    setOtpValues(newValues);
+    // Move focus to the next input box if not the last box
+    if (index < newValues.length - 1 && value !== "") {
+      document.getElementById(`otp-input-${index + 1}`).focus();
+    }
+  };
+
+  const handleKeyDown = (index, e) => {
+    if (e.key === "Backspace" && index > 0 && otpValues[index] === "") {
+      // Move focus to the previous input box on Backspace
+      document.getElementById(`otp-input-${index - 1}`).focus();
+    }
+  };
   return (
     <>
-      <Button color="primary" onPress={onOpen}>
-        SUBMIT <IconLogin fill="white" />
-      </Button>
-      <Modal
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-        placement="top-center"
-        size="md"
-      >
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex self-center flex-col gap-1">
-                <div>
-                  <IconOTPSVG width="180px" height="180px" />
-                </div>
-                <div className="self-center">Enter OTP</div>
-              </ModalHeader>
-              <ModalBody>
-                <div className="flex items-center">
-                  <Input
-                    className="me-2"
-                    maxLength={1}
-                    radius="full"
-                    variant="bordered"
-                    type="OTP"
-                  />
-                  <Input
-                    className="me-2"
-                    maxLength={1}
-                    radius="full"
-                    variant="bordered"
-                  />
-                  <Input
-                    className="me-2"
-                    radius="full"
-                    maxLength={1}
-                    variant="bordered"
-                  />
-                  <Input
-                    className=""
-                    maxLength={1}
-                    radius="full"
-                    variant="bordered"
-                  />
-                </div>
-                <Button color="primary" onPress={onClose}>
-                  SUBMIT <IconLogin fill="white" />
-                </Button>
-              </ModalBody>
-              <ModalFooter>
-                <div className="flex items-center">
-                  <p className="pe-2">Not A Member ? </p>
-                  <Button color="primary" onPress={onClose}>
-                    Register Now
-                  </Button>
-                </div>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
+      <div className="flex items-center">
+        {otpValues.map((value, index) => (
+          <Input
+            key={index}
+            id={`otp-input-${index}`}
+            type="text"
+            value={value}
+            radius="full"
+            onChange={(e) => handleInputChange(index, e.target.value)}
+            maxLength={1}
+            className={"me-2 p-0"}
+            classNames={{
+              innerWrapper: [
+                "bg-input",
+                "rounded-full",
+                "flex",
+                "items-center",
+              ],
+              inputWrapper: ["p-0", "border-0"],
+              input: ["text-center", "text-lg", "font-semibold"],
+            }}
+            variant="bordered"
+            onKeyDown={(e) => handleKeyDown(index, e)}
+            color={"primary"}
+          />
+        ))}
+      </div>
     </>
   );
 };
