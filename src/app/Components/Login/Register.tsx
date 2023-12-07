@@ -19,7 +19,7 @@ export const Register = () => {
           <Radio value="Store">Store</Radio>
           <Radio value="Vendor">Vendor</Radio>
         </RadioGroup>
-        <div className="grid grid-cols-2 gap-4 mb-5">
+        <div className="grid grid-cols-2 gap-5 mb-5">
           <Input
             classNames={{
               inputWrapper: ["border", "border-slate-100"],
@@ -49,7 +49,7 @@ export const Register = () => {
             variant="bordered"
           />
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-5">
           <Input
             classNames={{
               inputWrapper: ["border", "border-slate-100"],
@@ -79,7 +79,7 @@ export const Register = () => {
           />
         </div>
         <Checkbox
-          className="pt-"
+          className="pt-5"
           classNames={{
             label: "text-small",
           }}
