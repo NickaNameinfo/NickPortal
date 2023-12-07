@@ -16,24 +16,29 @@ import {
   IconForgotSVG,
   IconLogin,
   IconLoginSVG,
+  IconNewPasswordSVG,
   IconOTPSVG,
   IconProfile,
+  IconRegisterSVG,
 } from "../Icons";
 import { ForgotPassword } from "./ForgotPassword";
 import { OTPPage } from "./Otp";
 import { NewPassword } from "./NewPassword";
+import { Register } from "./Register";
 
 export const Login = () => {
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
   const [isForgetPassword, setIsForgetPassword] = React.useState(false);
   const [isOTP, setIsOTP] = React.useState(false);
   const [isNewPassword, setIsNewPassword] = React.useState(false);
+  const [isRegister, setIsRegister] = React.useState(false);
 
   const onCloseModal = () => {
     onClose();
     setIsForgetPassword(false);
     setIsOTP(false);
     setIsNewPassword(false);
+    setIsRegister(false);
   };
   const onClickLogin = () => {
     if (isForgetPassword) {
@@ -42,6 +47,9 @@ export const Login = () => {
         setIsNewPassword(true);
       }
     }
+  };
+  const onClickRegister = () => {
+    setIsRegister(true);
   };
 
   return (
@@ -77,8 +85,10 @@ export const Login = () => {
             <>
               <ModalHeader className="flex self-center flex-col gap-1">
                 <div className="flex justify-center">
-                  {isNewPassword ? (
-                    ""
+                  {isRegister ? (
+                    <IconRegisterSVG width="180px" height="180px" />
+                  ) : isNewPassword ? (
+                    <IconNewPasswordSVG width="180px" height="180px" />
                   ) : isOTP ? (
                     <IconOTPSVG width="180px" height="180px" />
                   ) : isForgetPassword ? (
@@ -88,17 +98,21 @@ export const Login = () => {
                   )}
                 </div>
                 <div className="self-center font-bold text-3xl">
-                  {isNewPassword
+                  {isRegister
+                    ? "Register"
+                    : isNewPassword
                     ? "Create New Password"
                     : isOTP
                     ? "Enter OTP"
                     : isForgetPassword
                     ? "Forgot password"
-                    : "Log in"}
+                    : "Login"}
                 </div>
               </ModalHeader>
               <ModalBody>
-                {isNewPassword ? (
+                {isRegister ? (
+                  <Register />
+                ) : isNewPassword ? (
                   <NewPassword />
                 ) : isOTP ? (
                   <OTPPage />
@@ -107,6 +121,12 @@ export const Login = () => {
                 ) : (
                   <>
                     <Input
+                      classNames={{
+                        inputWrapper: ["border", "border-slate-100"],
+                        input: [
+                          "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+                        ],
+                      }}
                       isClearable
                       autoFocus
                       label="Email Address"
@@ -115,6 +135,12 @@ export const Login = () => {
                       variant="bordered"
                     />
                     <Input
+                      classNames={{
+                        inputWrapper: ["border", "border-slate-100"],
+                        input: [
+                          "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+                        ],
+                      }}
                       label="Password"
                       labelPlacement="outside"
                       placeholder="Enter Your Password"
@@ -142,20 +168,26 @@ export const Login = () => {
                 )}
 
                 <Button color="primary" onPress={() => onClickLogin()}>
-                  {isForgetPassword ? "SUBMIT" : "LOGIN"}
+                  {isRegister
+                    ? "Register"
+                    : isForgetPassword
+                    ? "SUBMIT"
+                    : "LOGIN"}
                   <IconLogin fill="white" />
                 </Button>
               </ModalBody>
-              <ModalFooter>
+              <ModalFooter className="justify-center">
                 <div className="flex items-center">
-                  <p className="text-sm pe-2 Iconweb">Not A Member ? </p>
+                  <p className="text-sm pe-2 Iconweb text-slate-500">
+                    {isRegister ? "Already Have a Member ?" : "Not A Member ?"}
+                  </p>
                   <Link
                     className="cursor-pointer font-semibold"
                     color="primary"
-                    onPress={() => onCloseModal()}
+                    onPress={() => onClickRegister()}
                     size="sm"
                   >
-                    Register Now
+                    {isRegister ? "LogIn" : "Register Now"}
                   </Link>
                 </div>
               </ModalFooter>
