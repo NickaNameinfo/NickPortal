@@ -67,7 +67,7 @@ export const Login = () => {
         isOpen={isOpen}
         onOpenChange={onCloseModal}
         placement="top-center"
-        size="md"
+        size="lg"
         // closeButton={
         //   <>
         //     <IconCLose
