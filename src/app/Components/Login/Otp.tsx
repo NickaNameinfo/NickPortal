@@ -24,7 +24,7 @@ export const OTPPage = () => {
   };
   return (
     <>
-      <div className="flex items-center">
+      <div className="flex items-center mb-3">
         {otpValues.map((value, index) => (
           <Input
             key={index}
@@ -42,8 +42,13 @@ export const OTPPage = () => {
                 "flex",
                 "items-center",
               ],
-              inputWrapper: ["p-0", "border-0"],
-              input: ["text-center", "text-lg", "font-semibold"],
+              inputWrapper: ["p-0", "border-0", "border", "border-slate-100"],
+              input: [
+                "text-center",
+                "text-lg",
+                "font-semibold",
+                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+              ],
             }}
             variant="bordered"
             onKeyDown={(e) => handleKeyDown(index, e)}
