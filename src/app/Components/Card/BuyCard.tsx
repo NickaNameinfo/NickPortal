@@ -162,10 +162,7 @@ const users = [
     StoreName: "Arul's Stroe",
   },
 ];
-export const BuyCard = (props: {
-  isOpen: boolean | undefined;
-  onClose: (() => void) | undefined;
-}) => {
+export const BuyCard = (props:any) => {
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
   const renderCell = React.useCallback(
     (

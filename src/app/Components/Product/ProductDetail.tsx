@@ -13,16 +13,13 @@ import {
 } from "@nextui-org/react";
 import React from "react";
 import { IconHeart, IconLocation, IconShare, IconTick } from "../Icons";
+import { BuyCard } from "../Card/BuyCard";
 
-export const ProductDetail = () => {
+export const ProductDetail = (props:any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   return (
     <>
-      <div className="flex flex-wrap gap-3">
-        <Button onPress={() => onOpen()}>Open Detail</Button>
-      </div>
-      <Modal size={"5xl"} isOpen={isOpen} onClose={onClose}>
+      <Modal size={"5xl"} isOpen={props.isOpen} onClose={props.onClose}>
         <ModalContent>
           {(onClose) => (
             <>
@@ -86,6 +83,7 @@ export const ProductDetail = () => {
                           color="primary"
                           variant="ghost"
                           className="w-100 h-50 px-unit-3"
+                          onClick={()=>onOpen()}
                         >
                           View Cart
                         </Button>
@@ -152,6 +150,7 @@ export const ProductDetail = () => {
           )}
         </ModalContent>
       </Modal>
+      <BuyCard isOpen={isOpen} onClose={onClose} />
     </>
   );
 };

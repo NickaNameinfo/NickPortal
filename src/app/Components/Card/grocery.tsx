@@ -9,12 +9,12 @@ import {
 } from "@nextui-org/react";
 import StoreHeaderCard from "./StoreHeaderCard";
 import { BuyCard } from "./BuyCard";
+import { ProductDetail } from "../Product/ProductDetail";
 
 export const GroceryCard = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <StoreHeaderCard />
       <div className="grid grid-cols-4 gap-2">
         <Card
           isPressable
@@ -173,7 +173,7 @@ export const GroceryCard = () => {
           </CardFooter>
         </Card>
       </div>
-      <BuyCard isOpen={isOpen} onClose={onClose} />
+      <ProductDetail isOpen={isOpen} onClose={onClose}/>
     </>
   );
 };

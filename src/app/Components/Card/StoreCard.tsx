@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import "../style.scss";
 import {
@@ -16,6 +17,7 @@ import {
   IconstoreCardNext,
   Iconwhatsup,
 } from "../Icons";
+import Link from "next/link";
 export const StoreCard = () => {
   return (
     <div className="grid grid-cols-3 gap-2">
@@ -57,27 +59,27 @@ export const StoreCard = () => {
                     <Iconwhatsup fill="#6942CB" />
                   </p>
                   <Button
-                      className="bgnone p-0 m-0"
-                      radius="full"
-                      isIconOnly
-                      size="sm"
-                    >
+                    className="bgnone p-0 m-0"
+                    radius="full"
+                    isIconOnly
+                    size="sm"
+                  >
                     <IconCall fill="#6942CB" />
                   </Button>
                   <Button
-                      className="bgnone p-0 m-0"
-                      radius="full"
-                      isIconOnly
-                      size="sm"
-                    >
+                    className="bgnone p-0 m-0"
+                    radius="full"
+                    isIconOnly
+                    size="sm"
+                  >
                     <IconMap fill="#6942CB" />
                   </Button>
                   <Button
-                      className="bgnone p-0 m-0" 
-                      radius="full"
-                      isIconOnly
-                      size="sm"
-                    >
+                    className="bgnone p-0 m-0"
+                    radius="full"
+                    isIconOnly
+                    size="sm"
+                  >
                     <IconMapRound fill="#6942CB" />
                   </Button>
                 </div>
@@ -141,34 +143,36 @@ export const StoreCard = () => {
                     <Iconwhatsup fill="#6942CB" />
                   </p>
                   <Button
-                      className="bgnone p-0 m-0"
-                      radius="full"
-                      isIconOnly
-                      size="sm"
-                    >
+                    className="bgnone p-0 m-0"
+                    radius="full"
+                    isIconOnly
+                    size="sm"
+                  >
                     <IconCall fill="#6942CB" />
                   </Button>
                   <Button
-                      className="bgnone p-0 m-0"
-                      radius="full"
-                      isIconOnly
-                      size="sm"
-                    >
+                    className="bgnone p-0 m-0"
+                    radius="full"
+                    isIconOnly
+                    size="sm"
+                  >
                     <IconMap fill="#6942CB" />
                   </Button>
                   <Button
-                      className="bgnone p-0 m-0"
-                      radius="full"
-                      isIconOnly
-                      size="sm"
-                    >
+                    className="bgnone p-0 m-0"
+                    radius="full"
+                    isIconOnly
+                    size="sm"
+                  >
                     <IconMapRound fill="#6942CB" />
                   </Button>
                 </div>
 
                 <div className="mt-0 basis-3/12 justify-end flex pe-0">
                   <div className="iconbox flex items-center justify-center cursor-pointer">
-                    <IconstoreCardNext fill="#6942CB" />
+                    <Link href="/Pages/Store">
+                      <IconstoreCardNext fill="#6942CB" />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -225,34 +229,36 @@ export const StoreCard = () => {
                     <Iconwhatsup fill="#6942CB" />
                   </p>
                   <Button
-                      className="bgnone p-0 m-0"
-                      radius="full"
-                      isIconOnly
-                      size="sm"
-                    >
+                    className="bgnone p-0 m-0"
+                    radius="full"
+                    isIconOnly
+                    size="sm"
+                  >
                     <IconCall fill="#6942CB" />
                   </Button>
                   <Button
-                      className="bgnone p-0 m-0"
-                      radius="full"
-                      isIconOnly
-                      size="sm"
-                    >
+                    className="bgnone p-0 m-0"
+                    radius="full"
+                    isIconOnly
+                    size="sm"
+                  >
                     <IconMap fill="#6942CB" />
                   </Button>
                   <Button
-                      className="bgnone p-0 m-0"
-                      radius="full"
-                      isIconOnly
-                      size="sm"
-                    >
+                    className="bgnone p-0 m-0"
+                    radius="full"
+                    isIconOnly
+                    size="sm"
+                  >
                     <IconMapRound fill="#6942CB" />
                   </Button>
                 </div>
 
                 <div className="mt-0 basis-3/12 justify-end flex pe-0">
                   <div className="iconbox flex items-center justify-center cursor-pointer">
-                    <IconstoreCardNext fill="#6942CB" />
+                    <Link href="/Pages/Store">
+                      <IconstoreCardNext fill="#6942CB" />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -271,8 +277,6 @@ export const StoreCard = () => {
           </div>
         </CardFooter>
       </Card>
-      
-     
     </div>
   );
 };

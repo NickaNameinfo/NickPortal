@@ -24,11 +24,16 @@ import {
   IconsEye,
 } from "../Icons";
 import StoreHeaderCard from "./StoreHeaderCard";
+import { ProductDetail } from "../Product/ProductDetail";
+import { BuyCard } from "./BuyCard";
+import { useBoolean } from "../Common/CustomHooks";
 
 export const PremiumCard = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [cartPopup, setTrue, setFalse, toggle] = useBoolean(false);
+
   return (
     <>
-      <StoreHeaderCard />
       <div className="grid grid-cols-4 gap-2">
         <Card className="Storecard pt-3.5 px-3">
           <CardBody className="overflow-visible p-0 relative">
@@ -97,6 +102,7 @@ export const PremiumCard = () => {
                       radius="full"
                       isIconOnly
                       size="lg"
+                      onClick={() => onOpen()}
                     >
                       <IconsEye fill="#CFA007" className="m-3 cursor-pointer" />
                     </Button>
@@ -105,6 +111,7 @@ export const PremiumCard = () => {
                       radius="full"
                       isIconOnly
                       size="lg"
+                      onClick={() => setTrue}
                     >
                       <IconShopBag
                         fill="#4C86F9"
@@ -449,6 +456,8 @@ export const PremiumCard = () => {
           </CardFooter>
         </Card>
       </div>
+      <ProductDetail isOpen={isOpen} onClose={onClose} />
+      <BuyCard isOpen={cartPopup} onClose={setFalse} />
     </>
   );
 };

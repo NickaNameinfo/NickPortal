@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import "../style.scss";
 import { Card, CardBody, Image, useDisclosure } from "@nextui-org/react";
