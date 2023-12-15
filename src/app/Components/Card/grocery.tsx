@@ -7,8 +7,6 @@ import {
   Image,
   useDisclosure,
 } from "@nextui-org/react";
-import StoreHeaderCard from "./StoreHeaderCard";
-import { BuyCard } from "./BuyCard";
 import { ProductDetail } from "../Product/ProductDetail";
 
 export const GroceryCard = () => {
@@ -34,14 +32,14 @@ export const GroceryCard = () => {
               shadow="md"
               width="100%"
               radius="lg"
-              className="w-full object-cover max-h-[176px]"
+              className="w-full object-cover min-h-[176px]"
               src="https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg"
             />
           </CardBody>
           <CardFooter className="p-0">
             <div className="grid grid-cols-1 w-full">
               <div className="font-semibold mt-3 text-sm  TextMaincolor justify-start flex">
-                Apple1 - Shimla
+                <p className="truncate"> Apple1 - Shimla sam test and developred portal ui</p>
               </div>
               <div className="font-normal text-sm mt-2  TextMaincolor justify-start flex">
                 4 pcs (Approx. 550 - 640 g)
@@ -73,14 +71,14 @@ export const GroceryCard = () => {
               shadow="md"
               width="100%"
               radius="lg"
-              className="w-full object-cover max-h-[176px]"
+              className="w-full object-cover min-h-[176px]"
               src="https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg"
             />
           </CardBody>
           <CardFooter className="p-0">
             <div className="grid grid-cols-1 w-full">
               <div className="font-semibold mt-3 text-sm  TextMaincolor justify-start flex">
-                Apple1 - Shimla
+                <p className="truncate"> Apple1 - Shimla sam test and developred portal ui</p>
               </div>
               <div className="font-normal text-sm mt-2  TextMaincolor justify-start flex">
                 4 pcs (Approx. 550 - 640 g)
@@ -112,14 +110,14 @@ export const GroceryCard = () => {
               shadow="md"
               width="100%"
               radius="lg"
-              className="w-full object-cover max-h-[176px]"
+              className="w-full object-cover min-h-[176px]"
               src="https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg"
             />
           </CardBody>
           <CardFooter className="p-0">
             <div className="grid grid-cols-1 w-full">
               <div className="font-semibold mt-3 text-sm  TextMaincolor justify-start flex">
-                Apple1 - Shimla
+                <p className="truncate"> Apple1 - Shimla sam test and developred portal ui</p>
               </div>
               <div className="font-normal text-sm mt-2  TextMaincolor justify-start flex">
                 4 pcs (Approx. 550 - 640 g)
@@ -151,14 +149,14 @@ export const GroceryCard = () => {
               shadow="md"
               width="100%"
               radius="lg"
-              className="w-full object-cover max-h-[176px]"
+              className="w-full object-cover min-h-[176px]"
               src="https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg"
             />
           </CardBody>
           <CardFooter className="p-0">
             <div className="grid grid-cols-1 w-full">
               <div className="font-semibold mt-3 text-sm  TextMaincolor justify-start flex">
-                Apple1 - Shimla
+                <p className="truncate"> Apple1 - Shimla sam test and developred portal ui</p>
               </div>
               <div className="font-normal text-sm mt-2  TextMaincolor justify-start flex">
                 4 pcs (Approx. 550 - 640 g)
@@ -173,7 +171,7 @@ export const GroceryCard = () => {
           </CardFooter>
         </Card>
       </div>
-      <ProductDetail isOpen={isOpen} onClose={onClose}/>
+      <ProductDetail isOpen={isOpen} onClose={onClose} />
     </>
   );
 };

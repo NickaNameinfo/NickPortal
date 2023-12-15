@@ -12,10 +12,18 @@ import {
   Image,
 } from "@nextui-org/react";
 import React from "react";
-import { IconHeart, IconLocation, IconShare, IconTick } from "../Icons";
+import {
+  IconHeart,
+  IconLocation,
+  IconNxt,
+  IconPrev,
+  IconPrv,
+  IconShare,
+  IconTick,
+} from "../Icons";
 import { BuyCard } from "../Card/BuyCard";
 
-export const ProductDetail = (props:any) => {
+export const ProductDetail = (props: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -26,10 +34,10 @@ export const ProductDetail = (props:any) => {
               <ModalHeader className="flex flex-col gap-1">
                 {/* Product Detail */}
               </ModalHeader>
-              <ModalBody>
+              <ModalBody className="p-3">
                 <div className="grid grid-cols-12">
-                  <div className="col-span-4">
-                    <Card className="p-3 h-full w-full bg-default/40">
+                  <div className="col-span-3">
+                    <Card className="p-2 h-full w-11/12 bg-default/40">
                       <CardBody className="overflow-visible p-0 relative">
                         <span className="bg-slate-700 z-50 absolute text-white text-xs font-medium px-2.5 py-1 rounded-ss-xl rounded-ee-xl dark:bg-gray-700 dark:text-gray-300">
                           50%
@@ -37,7 +45,6 @@ export const ProductDetail = (props:any) => {
                         <Image
                           alt="Card background"
                           src="https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg"
-                          // height={200}
                           shadow="md"
                           width="100%"
                           radius="lg"
@@ -46,9 +53,9 @@ export const ProductDetail = (props:any) => {
                       </CardBody>
                     </Card>
                   </div>
-                  <div className="col-span-4 px-3">
+                  <div className="col-span-5 px-3">
                     <h2 className="text-xl truncate font-bold">
-                      Fresho Onion (Loose), 5 kg ejdjfnm jd
+                      Fresho Onion (Loose), 5 kg test sam and developed
                     </h2>
                     <p className="text-slate-300 text-lg line-through font-normal">
                       MRP:Rs 151.32
@@ -57,33 +64,47 @@ export const ProductDetail = (props:any) => {
                       <p className="text-black text-lg font-normal">
                         Price:Rs 115 (1/kg)
                       </p>
-                      <div className="text-xs">120 Stocks</div>
+                      <div className="text-sm">120 Stocks</div>
                     </div>
-                    <div className="grid grid-cols-12 justify-between items-center">
-                      <div className="col-span-4">
-                        <Button
-                          color="default"
-                          className="w-100 h-50 px-unit-3"
-                        >
-                          <span className="ps-1">-</span>
-                          <span className="px-2.5">2</span>
-                          <span className="pe-1">+</span>
-                        </Button>
+                    <div className="flex items-center justify-between mt-2">
+                      <div className="">
+                        <div className="flex justify-between items-center rounded-xl bg-gray-200">
+                          <Button
+                            className="bgnone p-0 m-0 text-base font-semibold"
+                            radius="full"
+                            isIconOnly
+                            size="md"
+                          >
+                            -
+                          </Button>
+                          <p className="bgnone text-sm font-semibold px-2 ">
+                            133
+                          </p>
+                          <Button
+                            className="bgnone p-0 m-0 text-base font-semibold "
+                            radius="full"
+                            isIconOnly
+                            size="md"
+                          >
+                            +
+                          </Button>
+                        </div>
                       </div>
-                      <div className="col-span-4">
+                      <div className="">
                         <Button
+                          size="md"
                           color="primary"
-                          className="w-100 h-50 px-unit-3"
+                          // className="w-100 h-50 px-unit-3"
                         >
-                          Store View
+                          Add To Cart
                         </Button>
                       </div>
-                      <div className="col-span-4">
+                      <div className="">
                         <Button
                           color="primary"
                           variant="ghost"
-                          className="w-100 h-50 px-unit-3"
-                          onClick={()=>onOpen()}
+                          size="md"
+                          onClick={() => onOpen()}
                         >
                           View Cart
                         </Button>
@@ -91,40 +112,68 @@ export const ProductDetail = (props:any) => {
                     </div>
                     <div className="grid grid-cols-12 justify-between items-center mt-4">
                       <div className="col-span-8">
-                        <div className="flex items-center justify-between pb-3">
-                          <p>Per Order</p>
+                        <div className="flex items-center justify-between pb-2.5">
+                          <p className="text-sm font-normal">Per Order</p>
                           <IconTick fill="#49A84C" />
                         </div>
-                        <div className="flex items-center justify-between pb-3">
-                          <p>Online Payment</p>
+                        <div className="flex items-center justify-between pb-2.5">
+                          <p className="text-sm font-normal">Online Payment</p>
                           <IconTick fill="#49A84C" />
                         </div>
                         <div className="flex items-center justify-between">
-                          <p>Cash On Delivery</p>
+                          <p className="text-sm font-normal">
+                            Cash On Delivery
+                          </p>
                           <IconTick fill="#E6E6E6" />
                         </div>
                       </div>
-                      <div className="col-span-4 flex flex-col justify-between h-full">
-                        <div className="flex items-center justify-evenly ">
-                          <div className="border-1 p-2 rounded-lg border-blue-400">
-                            <IconLocation fill="#4C86F9" />
-                          </div>
-                          <div className="border-1 p-2 rounded-lg border-lime-400">
-                            <IconShare fill="#49A84C" />
+                      <div className="col-span-4 ms-4 flex flex-col justify-between h-full">
+                        <div className="flex items-center justify-end ">
+                          <div className="flex gap-5 items-center">
+                            <Button
+                              size="sm"
+                              isIconOnly
+                              aria-label="Like"
+                              color="primary"
+                              variant="bordered"
+                            >
+                              <IconLocation fill="#4C86F9" />
+                            </Button>
+                            <Button
+                              size="sm"
+                              color="success"
+                              variant="bordered"
+                              isIconOnly
+                            >
+                              <IconShare fill="#49A84C" />
+                            </Button>
                           </div>
                         </div>
-                        <div className="flex items-center justify-evenly mb-1.5">
-                          <div className="border-1 p-2 rounded-lg border-red-400">
-                            <IconHeart fill="#FF0000" />
-                          </div>
-                          <div className="border-1 p-2 rounded-lg border-red-400">
-                            <IconHeart fill="#FF0000" />
+                        <div className="flex items-center justify-end mb-1.5">
+                          <div className="flex gap-5 items-center">
+                            <Button
+                              size="sm"
+                              isIconOnly
+                              aria-label="Like"
+                              color="danger"
+                              variant="bordered"
+                            >
+                              <IconHeart fill="#FF0000" />
+                            </Button>
+                            <Button
+                              size="sm"
+                              color="danger"
+                              variant="bordered"
+                              isIconOnly
+                            >
+                              <IconHeart fill="#FF0000" />
+                            </Button>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="col-span-4 relative">
+                  <div className="col-span-4 relative ">
                     <span className="bg-red z-50 right-0 absolute text-white text-xs font-medium px-2.5 py-1 rounded-se-xl rounded-es-xl dark:bg-gray-700 dark:text-gray-300">
                       Ad
                     </span>
@@ -138,13 +187,28 @@ export const ProductDetail = (props:any) => {
                   </div>
                 </div>
               </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
+              <ModalFooter className="pt-0 pe-3 flex justify-between items-center ">
+                <div className="font-semibold text-xl"> Related Products</div>
+                <div>
+                  <Button
+                    className="bg-gray-200 me-5"
+                    size="md"
+                    isIconOnly
+                    aria-label="Like"
+                    variant="bordered"
+                  >
+                    <IconPrv fill="#000000" />
+                  </Button>
+                  <Button
+                    className=" bg-gray-200"
+                    size="md"
+                    isIconOnly
+                    aria-label="Like"
+                    variant="bordered"
+                  >
+                    <IconNxt fill="#000000" />
+                  </Button>
+                </div>
               </ModalFooter>
             </>
           )}
