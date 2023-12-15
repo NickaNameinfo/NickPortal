@@ -15,7 +15,7 @@ export const CompanyCard = () => {
             shadow="md"
             width="100%"
             radius="lg"
-            className="w-full object-cover min-h-[230px]"
+            className="w-full object-cover max-h-[250px]"
             src="https://nextui-docs-v2.vercel.app/images/fruit-1.jpeg"
           />
         </CardBody>
@@ -28,7 +28,7 @@ export const CompanyCard = () => {
             shadow="md"
             width="100%"
             radius="lg"
-            className="w-full object-cover min-h-[230px]"
+            className="w-full object-cover max-h-[250px]"
             src="https://nextui-docs-v2.vercel.app/images/fruit-1.jpeg"
           />
         </CardBody>
@@ -41,7 +41,7 @@ export const CompanyCard = () => {
             shadow="md"
             width="100%"
             radius="lg"
-            className="w-full object-cover min-h-[230px]"
+            className="w-full object-cover max-h-[250px]"
             src="https://nextui-docs-v2.vercel.app/images/fruit-1.jpeg"
           />
         </CardBody>
@@ -54,7 +54,7 @@ export const CompanyCard = () => {
             shadow="md"
             width="100%"
             radius="lg"
-            className="w-full object-cover min-h-[230px]"
+            className="w-full object-cover max-h-[250px]"
             src="https://nextui-docs-v2.vercel.app/images/fruit-1.jpeg"
           />
         </CardBody>

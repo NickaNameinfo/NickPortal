@@ -24,6 +24,7 @@ import {
   getKeyValue,
 } from "@nextui-org/react";
 import { IconDelete } from "../Icons";
+import { useBoolean } from "../Common/CustomHooks";
 const columns = [
   { name: "Sl.No", uid: "no" },
   { name: "Product", uid: "name" },
@@ -162,7 +163,7 @@ const users = [
     StoreName: "Arul's Stroe",
   },
 ];
-export const BuyCard = (props:any) => {
+export const BuyCard = (props: any) => {
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
   const renderCell = React.useCallback(
     (
@@ -240,25 +241,28 @@ export const BuyCard = (props:any) => {
                   </Button>
                 </div>
               </div>
-              <Tooltip
-                color="danger"
-                content="Delete"
-                closeDelay={0}
-                size="sm"
-                radius="lg"
-              >
-                <div className="text-lg text-danger cursor-pointer active:opacity-50">
-                  <Button
-                    className="bgnone p-0 m-0"
-                    onPress={onOpen}
-                    radius="full"
-                    isIconOnly
-                    size="lg"
+
+              <div className="text-lg text-danger cursor-pointer active:opacity-50">
+                <Button
+                  className="bgnone p-0 m-0 z-50"
+                  isIconOnly
+                  onPress={onOpen}
+                  size="lg"
+                >
+                  <Tooltip
+                    color="danger"
+                    content="Delete"
+                    closeDelay={0}
+                    size="sm"
+                    radius="lg"
+                    showArrow={true}
                   >
-                    <IconDelete fill="#ff0000" />
-                  </Button>
-                </div>
-              </Tooltip>
+                    <p className="p-0 m-0 z-1">
+                      <IconDelete fill="#ff0000"  />
+                    </p>
+                  </Tooltip>
+                </Button>
+              </div>
             </div>
           );
         default:

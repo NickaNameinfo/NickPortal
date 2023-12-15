@@ -1,17 +1,20 @@
 import { Checkbox, Input, Link, Radio, RadioGroup } from "@nextui-org/react";
 import React from "react";
+import { EyeFilledIcon, EyeSlashFilledIcon } from "../Icons";
 
 export const Register = () => {
   const [selected, setSelected] = React.useState("Customer");
+  const [isVisible, setIsVisible] = React.useState(false);
+  const toggleVisibility = () => setIsVisible(!isVisible);
   return (
-    <>
+    <>  
       <div>
-        <p className="font-normal text-lg text-slate-600">Register As</p>
+        <p className="font-normal text-md text-slate-600">Register As</p>
         <RadioGroup
           classNames={{ wrapper: ["justify-between"] }}
-          className="py-5"
+          className="py-2"
           orientation="horizontal"
-          color="success"
+          color="primary"
           value={selected}
           onValueChange={setSelected}
         >
@@ -19,67 +22,72 @@ export const Register = () => {
           <Radio value="Store">Store</Radio>
           <Radio value="Vendor">Vendor</Radio>
         </RadioGroup>
-        <div className="grid grid-cols-2 gap-5 mb-5">
+        <div className="grid grid-cols-2 gap-4 mb-2">
           <Input
-            classNames={{
-              inputWrapper: ["border", "border-slate-100"],
-              input: [
-                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
-              ],
-            }}
+            isRequired
             isClearable
             autoFocus
-            label="Name"
-            labelPlacement="outside"
-            placeholder="Enter Your Name"
+            label="Enter Your Name"
+            labelPlacement="inside"
+            color="primary"
             variant="bordered"
           />
           <Input
-            classNames={{
-              inputWrapper: ["border", "border-slate-100"],
-              input: [
-                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
-              ],
-            }}
+            isRequired
             isClearable
-            autoFocus
             label="Email Address"
-            labelPlacement="outside"
-            placeholder="Enter Your Email"
+            labelPlacement="inside"
+            color="primary"
             variant="bordered"
           />
         </div>
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 gap-4">
           <Input
             classNames={{
-              inputWrapper: ["border", "border-slate-100"],
               input: [
                 "placeholder:text-default-700/50 dark:placeholder:text-white/60",
               ],
             }}
-            isClearable
-            autoFocus
             label="Mobile Number"
-            labelPlacement="outside"
-            placeholder="Enter Your Number"
             variant="bordered"
+            color="primary"
+            type="number"
           />
+
           <Input
             classNames={{
-              inputWrapper: ["border", "border-slate-100"],
               input: [
                 "placeholder:text-default-700/50 dark:placeholder:text-white/60",
               ],
             }}
             label="Password"
-            labelPlacement="outside"
-            placeholder="Enter Your Password"
-            type="password"
             variant="bordered"
+            color="primary"
+            endContent={
+              <button
+                className="focus:outline-none"
+                type="button"
+                onClick={toggleVisibility}
+              >
+                {isVisible ? (
+                  <EyeSlashFilledIcon
+                    className="text-2xl text-default-400 pointer-events-none"
+                    fill="#4c86f9"
+                  />
+                ) : (
+                  <EyeFilledIcon
+                    className="text-2xl text-default-400 pointer-events-none"
+                    fill="#4c86f9"
+                  />
+                )}
+              </button>
+            }
+            type={isVisible ? "text" : "password"}
+            className="max-w-xs"
           />
         </div>
         <Checkbox
-          className="pt-5"
+          className="pt-4"
           classNames={{
             label: "text-small",
           }}

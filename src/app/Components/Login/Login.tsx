@@ -12,6 +12,8 @@ import {
   Link,
 } from "@nextui-org/react";
 import {
+  EyeFilledIcon,
+  EyeSlashFilledIcon,
   IconCLose,
   IconForgotSVG,
   IconLogin,
@@ -32,6 +34,8 @@ export const Login = () => {
   const [isOTP, setIsOTP] = React.useState(false);
   const [isNewPassword, setIsNewPassword] = React.useState(false);
   const [isRegister, setIsRegister] = React.useState(false);
+  const [isVisible, setIsVisible] = React.useState(false);
+  const toggleVisibility = () => setIsVisible(!isVisible);
 
   const onCloseModal = () => {
     onClose();
@@ -64,10 +68,11 @@ export const Login = () => {
         <IconProfile />
       </Button>
       <Modal
+        isDismissable={false}
         isOpen={isOpen}
         onOpenChange={onCloseModal}
         placement="top-center"
-        size="lg"
+        size="xl"
         // closeButton={
         //   <>
         //     <IconCLose
@@ -80,24 +85,24 @@ export const Login = () => {
         //   </>
         // }
       >
-        <ModalContent>
+        <ModalContent className="p-0 m-0">
           {(onClose) => (
             <>
-              <ModalHeader className="flex self-center flex-col gap-1">
+              <ModalHeader className="flex self-center flex-col gap-1 p-0 m-0">
                 <div className="flex justify-center">
                   {isRegister ? (
-                    <IconRegisterSVG width="180px" height="180px" />
+                    <IconRegisterSVG width="150px" height="150px" />
                   ) : isNewPassword ? (
-                    <IconNewPasswordSVG width="180px" height="180px" />
+                    <IconNewPasswordSVG width="150px" height="150px" />
                   ) : isOTP ? (
-                    <IconOTPSVG width="180px" height="180px" />
+                    <IconOTPSVG width="150px" height="150px" />
                   ) : isForgetPassword ? (
-                    <IconForgotSVG width="180px" height="180px" />
+                    <IconForgotSVG width="150px" height="150px" />
                   ) : (
-                    <IconLoginSVG width="180px" height="180px" />
+                    <IconLoginSVG width="150px" height="150px" />
                   )}
                 </div>
-                <div className="self-center font-bold text-3xl">
+                <div className="self-center font-medium text-xl mt-0">
                   {isRegister
                     ? "Register"
                     : isNewPassword
@@ -109,7 +114,7 @@ export const Login = () => {
                     : "Login"}
                 </div>
               </ModalHeader>
-              <ModalBody>
+              <ModalBody className="px-3 m-0">
                 {isRegister ? (
                   <Register />
                 ) : isNewPassword ? (
@@ -122,32 +127,52 @@ export const Login = () => {
                   <>
                     <Input
                       classNames={{
-                        inputWrapper: ["border", "border-slate-100"],
                         input: [
                           "placeholder:text-default-700/50 dark:placeholder:text-white/60",
                         ],
                       }}
-                      isClearable
+                      isRequired
                       autoFocus
                       label="Email Address"
-                      labelPlacement="outside"
-                      placeholder="Enter Your Email Address"
+                      labelPlacement="inside"
+                      color="primary"
                       variant="bordered"
                     />
                     <Input
                       classNames={{
-                        inputWrapper: ["border", "border-slate-100"],
                         input: [
                           "placeholder:text-default-700/50 dark:placeholder:text-white/60",
                         ],
                       }}
+                      isRequired
                       label="Password"
-                      labelPlacement="outside"
-                      placeholder="Enter Your Password"
-                      type="password"
+                      labelPlacement="inside"
+                      color="primary"
                       variant="bordered"
+                      endContent={
+                        <button
+                          className="focus:outline-none"
+                          type="button"
+                          onClick={toggleVisibility}
+                        >
+                          {isVisible ? (
+                            <EyeSlashFilledIcon
+                              className="text-2xl text-default-400 pointer-events-none"
+                              fill="#4c86f9"
+                            />
+                          ) : (
+                            <EyeFilledIcon
+                              className="text-2xl text-default-400 pointer-events-none"
+                              fill="#4c86f9"
+                            />
+                          )}
+                        </button>
+                      }
+                      type={isVisible ? "text" : "password"}
+                      // className="w-full"
                     />
-                    <div className="flex py-2 px-1 justify-between">
+
+                    <div className="flex justify-between">
                       <Checkbox
                         classNames={{
                           label: "text-small",
@@ -156,7 +181,7 @@ export const Login = () => {
                         Remember me
                       </Checkbox>
                       <Link
-                        className="cursor-pointer"
+                        className="cursor-pointer p-0 m-0"
                         color="primary"
                         onPress={() => setIsForgetPassword(true)}
                         size="sm"
@@ -167,7 +192,12 @@ export const Login = () => {
                   </>
                 )}
 
-                <Button color="primary" onPress={() => onClickLogin()}>
+                <Button
+                  color="primary"
+                  onPress={() => onClickLogin()}
+                  size="sm"
+                  className="p-0 m-0"
+                >
                   {isRegister
                     ? "Register"
                     : isForgetPassword
@@ -176,18 +206,18 @@ export const Login = () => {
                   <IconLogin fill="white" />
                 </Button>
               </ModalBody>
-              <ModalFooter className="justify-center">
-                <div className="flex items-center">
+              <ModalFooter className="justify-center p-0 m-0">
+                <div className="flex items-center pb-2">
                   <p className="text-sm pe-2 Iconweb text-slate-500">
-                    {isRegister ? "Already Have a Member ?" : "Not A Member ?"}
+                    {isRegister ? "Already have a member ?" : "Not a member ?"}
                   </p>
                   <Link
-                    className="cursor-pointer font-semibold"
+                    className="cursor-pointer  p-0 m-0"
                     color="primary"
                     onPress={() => onClickRegister()}
                     size="sm"
                   >
-                    {isRegister ? "LogIn" : "Register Now"}
+                    {isRegister ? "Login" : "Register Now"}
                   </Link>
                 </div>
               </ModalFooter>

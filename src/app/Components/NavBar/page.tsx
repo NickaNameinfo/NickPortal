@@ -14,6 +14,7 @@ export const NavBar = () => {
       <div className="grid grid-cols-12 justify-between navBarStyle gap-4 items-center p-3">
         <div className="grid grid-cols-12 gap-2 col-span-4 items-center">
           <div className="col-span-2 text-center">
+          <Link href={"/"}>
             <Button
               isIconOnly
               color="primary"
@@ -22,6 +23,7 @@ export const NavBar = () => {
             >
               <IconHome height="16px" width="16px" />
             </Button>
+            </Link>
           </div>
           <div className="col-span-10"></div>
         </div>
