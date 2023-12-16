@@ -25,7 +25,7 @@ export const Register = () => {
         <div className="grid grid-cols-2 gap-4 mb-2">
           <Input
             isRequired
-            isClearable
+            // isClearable
             autoFocus
             label="Enter Your Name"
             labelPlacement="inside"
@@ -34,7 +34,7 @@ export const Register = () => {
           />
           <Input
             isRequired
-            isClearable
+            // isClearable
             label="Email Address"
             labelPlacement="inside"
             color="primary"
