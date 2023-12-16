@@ -11,7 +11,7 @@ export const NewPassword = () => {
           ],
         }}
         isRequired
-        isClearable
+        // isClearable
         autoFocus
         label="Enter Your Password"
         labelPlacement="inside"
@@ -26,7 +26,7 @@ export const NewPassword = () => {
           ],
         }}
         isRequired
-        isClearable
+        // isClearable
         autoFocus
         label="Enter Your Password"
         labelPlacement="inside"

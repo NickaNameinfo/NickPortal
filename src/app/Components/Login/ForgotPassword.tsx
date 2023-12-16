@@ -11,7 +11,7 @@ export const ForgotPassword = () => {
           ],
         }}
         isRequired
-        isClearable
+        // isClearable
         autoFocus
         label="Email Address Or Mobile Number"
         labelPlacement="inside"
