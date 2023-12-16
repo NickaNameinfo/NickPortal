@@ -17,11 +17,12 @@ export const StoreHeaderCard = () => {
   return (
     <div className="grid grid-cols-2 gap-1 flex StorecardHeader min-h-[85px] mb-3">
       <div className="flex">
-        <div className="w-2/12 items-center justify-end flex">
+        <div className="w-2/12 items-center justify-start flex">
           <div
+            // className="max-h-[95px]"
             style={{
-              padding: "4px 0px 4px 14px",
-              maxHeight: "85px",
+              padding: "4px 8px 4px 8px",
+              // maxHeight: "85px",
               objectFit: "contain",
               borderRadius: "10px",
             }}
@@ -29,12 +30,13 @@ export const StoreHeaderCard = () => {
             <Image
               isZoomed
               alt="Here no Image"
-              className="w-full object-cover "
+              className="w-full object-cover max-h-[85px] "
+              // height={}
               src="https://nextui-docs-v2.vercel.app/images/album-cover.png"
             />
           </div>
         </div>
-        <div className="w-10/12 ms-5">
+        <div className="w-10/12 ms-1">
           <div className="mt-3 maincolor text-sm font-semibold items-center">
             Lorem ipsum dolor consectetur Samz adipiscing...
           </div>
