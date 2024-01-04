@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "teachabledatabase",
+    "database": "nick_portal",
     "host": "localhost",
     "dialect": "mysql"
   },
