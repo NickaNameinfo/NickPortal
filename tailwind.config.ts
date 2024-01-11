@@ -8,6 +8,7 @@ module.exports = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
+  
   theme: {
     extend: {
       backgroundColor: {
@@ -23,6 +24,26 @@ module.exports = {
       },
       // ... Other theme extensions
     },
+    screens: {   
+      'xm': {'min':'320px'},   
+      'mm':{'min':'375px'} ,
+      'ml':{'min':'425px'},
+      'sm': {'min':'640px'},
+      'md': {'min':'768px'}, 
+      'lg': {'min':'1024px'}, 
+      'xl': {'min':'1280px'}, 
+      '2xl':{'min':'1440px'}, 
+      '3xl':{'min':'1536px'},
+      '4xl':"2560px"
+      // [
+        // Sidebar appears at 768px, so revert to `sm:` styles between 768px
+        // and 868px, after which the main content area is wide enough again to
+        // apply the `md:` styles.
+        // {'min': '640px', 'max': '764px'},
+        // {'min': '868px'}
+      // ],
+     
+    }
   },
   plugins: [
     nextui({
