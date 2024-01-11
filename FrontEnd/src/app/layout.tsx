@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SideNavbar } from "./Components/SideBar/page";
 import { NavBar } from "./Components/NavBar/page";
+import YourPage from "./Components/DynamicFeilds/YourPage";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
               {/* <div className="w-1/4 md:w-2/3 lg:w-4/5 px-3 custom-scrollbar"> */}
               <div className=" mm:w-full ml:w-full sm:w-fullv md:w-full lg:w-full xl:w-full 2xl:w-full 3xl:w-full 4xl:w-full px-3 custom-scrollbar">
                 <NavBar />
+                <YourPage />
                 <div className="h-[81vh] overflow-auto navBarStyle p-4 mt-2">
                   {children}
                 </div>
