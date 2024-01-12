@@ -3,11 +3,15 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   const Consumer = sequelize.define("Consumer", {
-    customerId: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
+    id: {
       allowNull: false,
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+    },
+    customerId: {
+      type: DataTypes.STRING,
+      field: "customer_id",
     },
     firstName: {
       type: DataTypes.STRING,
@@ -35,23 +39,15 @@ module.exports = (sequelize) => {
     gender: {
       type: DataTypes.STRING,
     },
-    addressId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "Addresses", // Assuming there's an 'Addresses' table
-        key: "addressId",
-      },
-    },
+    // addressId: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "Addresses", // Assuming there's an 'Addresses' table
+    //     key: "addressId",
+    //   },
+    // },
     preferredLanguage: {
       type: DataTypes.STRING,
-    },
-    creationDate: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    lastUpdated: {
-      type: DataTypes.DATE,
-      allowNull: false,
     },
     membershipStatus: {
       type: DataTypes.STRING,
@@ -67,7 +63,7 @@ module.exports = (sequelize) => {
       type: DataTypes.DATE,
     },
     paymentInformation: {
-      type: DataTypes.JSONB, // Assuming payment information is stored as JSONB
+      type: DataTypes.JSONB,
     },
     notesComments: {
       type: DataTypes.TEXT,

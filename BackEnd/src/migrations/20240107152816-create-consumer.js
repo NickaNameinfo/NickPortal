@@ -1,21 +1,25 @@
-"use strict";
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Consumers", {
-      customerId: {
-        allowNull: false,
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable("Consumer", {
+      id: {
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        autoIncrement: true,
+      },
+      customerId: {
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: false,
         field: "customer_id",
       },
       firstName: {
         type: Sequelize.STRING,
+        allowNull: false,
         field: "first_name",
       },
       lastName: {
         type: Sequelize.STRING,
+        allowNull: false,
         field: "last_name",
       },
       username: {
@@ -43,9 +47,10 @@ module.exports = {
       addressId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Addresses", // Assuming there's an 'Addresses' table
-          key: "addressId",
+          model: "ConsumerAddresses",
+          key: "id",
         },
+        onDelete: "CASCADE",
         field: "address_id",
       },
       preferredLanguage: {
@@ -53,13 +58,13 @@ module.exports = {
         field: "preferred_language",
       },
       creationDate: {
-        allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
         field: "creation_date",
       },
       lastUpdated: {
-        allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
         field: "last_updated",
       },
       membershipStatus: {
@@ -67,20 +72,19 @@ module.exports = {
         field: "membership_status",
       },
       subscriptionStatus: {
-        type: Sequelize.STRING,
+        type: Sequelize.BOOLEAN,
         field: "subscription_status",
       },
       totalPurchaseAmount: {
-        type: Sequelize.FLOAT,
-        defaultValue: 0,
-        field: "total_purchase_amount",
+        type: Sequelize.DECIMAL,
+        field: "total_Purchase_amount",
       },
       lastPurchaseDate: {
         type: Sequelize.DATE,
-        field: "last_purchase_date",
+        field: "last_Purchase_date",
       },
       paymentInformation: {
-        type: Sequelize.JSONB,
+        type: Sequelize.STRING,
         field: "payment_information",
       },
       notesComments: {
@@ -89,7 +93,7 @@ module.exports = {
       },
     });
   },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Consumers");
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable("Consumer");
   },
 };
