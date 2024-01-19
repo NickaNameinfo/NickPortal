@@ -1,66 +1,174 @@
-// components/DynamicForm.js
-import React, { useState } from "react";
+import { Button, Input } from "@nextui-org/react";
+import * as React from "react";
+import { Controller, useForm } from "react-hook-form";
 
-const DynamicForm = ({ fieldType }) => {
-  const [fieldValue, setFieldValue] = useState<any>("");
-  const [error, setError] = useState("");
+interface FieldTypes {
+  name: string;
+  label: string;
+  key: any;
+  type: string;
+  labelPlacement?: any;
+  color?: any;
+  variant?: any;
+}
 
-  const handleInputChange = (e) => {
-    setFieldValue(e.target.value);
-  };
+type OnSubmitHandler = (data: Record<string, any>) => void;
+interface DynamicFormProps {
+  fields: FieldTypes[];
+  onSubmit: OnSubmitHandler;
+}
 
-  const validateField = () => {
-    switch (fieldType) {
+const DynamicForm: React.FC<DynamicFormProps> = ({ fields, onSubmit }) => {
+  const { control, handleSubmit, setValue } = useForm();
+
+  const renderFormField = (item: FieldTypes, index) => {
+    switch (item.type) {
       case "text":
-        if (!fieldValue.trim()) {
-          setError("Please enter text");
-          return false;
-        }
-        break;
-      case "number":
-        if (isNaN(fieldValue) || fieldValue.trim() === "") {
-          setError("Please enter a valid number");
-          return false;
-        }
-        break;
+        return (
+          <Controller
+            key={item.key}
+            name={`items.${item.key}.value`}
+            control={control}
+            rules={{
+              required: "This field is required",
+              minLength: {
+                value: 3,
+                message: "Minimum length is 3 characters",
+              },
+              maxLength: {
+                value: 20,
+                message: "Maximum length is 20 characters",
+              },
+            }}
+            render={({ field, fieldState }) => (
+              <>
+                <Input
+                  {...field}
+                  classNames={{
+                    input: [
+                      "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+                    ],
+                  }}
+                  {...item}
+                  type={"text"}
+                  errorMessage={fieldState?.error?.message}
+                />
+                {/* {fieldState.error && <p>{fieldState.error.message}</p>} */}
+              </>
+            )}
+          />
+        );
       case "email":
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(fieldValue)) {
-          setError("Please enter a valid email address");
-          return false;
-        }
-        break;
-      // Add more validation cases for other field types as needed
+        return (
+          <Controller
+            key={item.key}
+            name={`items.${item.key}.value`}
+            control={control}
+            rules={{
+              required: "Email is required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: "Invalid email address",
+              },
+            }}
+            render={({ field, fieldState }) => (
+              <>
+                <Input
+                  {...field}
+                  classNames={{
+                    input: [
+                      "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+                    ],
+                  }}
+                  {...item}
+                  type={"email"}
+                  errorMessage={fieldState?.error?.message}
+                />
+                {/* {fieldState.error && <p>{fieldState.error.message}</p>} */}
+              </>
+            )}
+          />
+        );
+      case "number":
+        return (
+          <Controller
+            key={item.key}
+            name={`items.${item.key}.value`}
+            control={control}
+            rules={{
+              required: "Number is required",
+              min: {
+                value: 1,
+                message: "Value must be greater than or equal to 1",
+              },
+              max: {
+                value: 100,
+                message: "Value must be less than or equal to 100",
+              },
+            }}
+            render={({ field, fieldState }) => (
+              <>
+                <Input
+                  {...field}
+                  classNames={{
+                    input: [
+                      "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+                    ],
+                  }}
+                  {...item}
+                  type={"number"}
+                  errorMessage={fieldState?.error?.message}
+                />
+                {/* {fieldState.error && <p>{fieldState.error.message}</p>} */}
+              </>
+            )}
+          />
+        );
+      case "date":
+        return (
+          <Controller
+            key={item.key}
+            name={`items.${item.key}.value`}
+            control={control}
+            rules={{
+              required: "Date is required",
+              pattern: {
+                value: /^\d{4}-\d{2}-\d{2}$/,
+                message: "Invalid date format (YYYY-MM-DD)",
+              },
+            }}
+            render={({ field, fieldState }) => (
+              <>
+                <Input
+                  {...field}
+                  classNames={{
+                    input: [
+                      "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+                    ],
+                  }}
+                  {...item}
+                  type={"date"}
+                  errorMessage={fieldState?.error?.message}
+                />
+              </>
+            )}
+          />
+        );
       default:
-        break;
+        return null;
     }
-
-    setError("");
-    return true;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const isValid = validateField();
-
-    if (isValid) {
-      // Perform any additional actions with the valid field value
-      console.log("Field value:", fieldValue);
-    }
+  const onClickSubmit = (data) => {
+    onSubmit(data);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        {fieldType.charAt(0).toUpperCase() + fieldType.slice(1)}:
-        <input
-          type={fieldType}
-          value={fieldValue}
-          onChange={handleInputChange}
-        />
-      </label>
-      {error && <div style={{ color: "red" }}>{error}</div>}
-      <button type="submit">Submit</button>
+    <form onSubmit={handleSubmit(onClickSubmit)}>
+      {fields?.map((result, index) => renderFormField(result, index))}
+      <Button type="submit" variant="bordered" color="primary" className="mt-3">
+        Submit
+      </Button>
     </form>
   );
 };
