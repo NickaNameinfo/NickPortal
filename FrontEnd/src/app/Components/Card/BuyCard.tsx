@@ -45,7 +45,7 @@ const users = [
     avatar:
       "https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg",
     Price: "45",
-    email: "446",
+    email: "4",
   },
   {
     id: 2,
@@ -56,7 +56,7 @@ const users = [
     age: "25",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
     Price: "657",
-    email: "446",
+    email: "4",
     StoreName: "Fruits Stroe",
   },
   {
@@ -69,7 +69,7 @@ const users = [
     avatar:
       "https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg",
     Price: "657",
-    email: "446",
+    email: "4",
     StoreName: "Grocery Stroe",
   },
   {
@@ -81,7 +81,7 @@ const users = [
     age: "28",
     avatar: "https://i.pravatar.cc/150?u=a048581f4e29026701d",
     Price: "657",
-    email: "446",
+    email: "4",
     StoreName: "Bike Stroe",
   },
   {
@@ -94,7 +94,7 @@ const users = [
     avatar:
       "https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg",
     Price: "657",
-    email: "446",
+    email: "4",
     StoreName: "Arul's Stroe",
   },
   {
@@ -107,7 +107,7 @@ const users = [
     avatar:
       "https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg",
     Price: "657",
-    email: "446",
+    email: "4",
     StoreName: "Arul's Stroe",
   },
   {
@@ -120,7 +120,7 @@ const users = [
     avatar:
       "https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg",
     Price: "657",
-    email: "446",
+    email: "4",
     StoreName: "Arul's Stroe",
   },
   {
@@ -133,7 +133,7 @@ const users = [
     avatar:
       "https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg",
     Price: "657",
-    email: "446",
+    email: "4",
     StoreName: "Arul's Stroe",
   },
   {
@@ -146,7 +146,7 @@ const users = [
     avatar:
       "https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg",
     Price: "657",
-    email: "446",
+    email: "4",
     StoreName: "Arul's Stroe",
   },
   {
@@ -159,7 +159,7 @@ const users = [
     avatar:
       "https://app.requestly.io/delay/1000/https://nextui.org/images/hero-card-complete.jpeg",
     Price: "657",
-    email: "446",
+    email: "4",
     StoreName: "Arul's Stroe",
   },
 ];
@@ -199,6 +199,7 @@ export const BuyCard = (props: any) => {
         case "name":
           return (
             <User
+              className="p-0 m-0"
               avatarProps={{ radius: "lg", src: user.avatar }}
               //   description={user.email}
               name={null}
@@ -208,65 +209,63 @@ export const BuyCard = (props: any) => {
           );
         case "role":
           return (
-            <div className="flex flex-col">
-              <p className="text-bold text-sm capitalize">{cellValue}</p>
-              <p className="text-bold text-sm capitalize text-default-400">
-                {/* {user.team} */}
+            <div className="flex flex-col items-center">
+              <p className="text-bold xm:text-sm mm:text-sm ml:text-sm capitalize flex items-center">
+                {cellValue}
               </p>
             </div>
           );
 
         case "actions":
           return (
-            <div className="relative flex items-center gap-1">
-              <div className=" ">
-                <div className="addsub bg-gray-200 flex justify-between items-center">
-                  <Button
-                    className="bgnone p-0 m-0 text-base font-semibold "
-                    radius="full"
-                    isIconOnly
-                    size="md"
-                  >
-                    -
-                  </Button>
-                  <p className="bgnone p-0 m-0 text-sm font-semibold ">453</p>
-
-                  <Button
-                    className="bgnone p-0 m-0 text-base font-semibold "
-                    radius="full"
-                    isIconOnly
-                    size="md"
-                  >
-                    +
-                  </Button>
-                </div>
-              </div>
-
-              <div className="text-lg text-danger cursor-pointer active:opacity-50">
+            <div className=" flex items-center">
+              <div className="rounded-lg bg-gray-200 flex justify-between items-center">
                 <Button
-                  className="bgnone p-0 m-0 z-50"
+                  className="bgnone 3xl:w-unit-10 3xl:h-unit-8 3xl:min-h-unit-8 2xl:w-unit-10 2xl:h-unit-8 2xl:min-h-unit-8 xl:w-unit-10 xl:h-unit-8 xl:min-h-unit-8 lg:w-unit-10 lg:h-unit-8 lg:min-h-unit-8 xm:min-w-unit-6 ml:min-h-unit-6 xm:min-h-unit-6 mm:min-h-unit-6 xm:w-unit-4 xm:h-unit-4 mm:min-w-unit-6 mm:w-unit-4 mm:h-unit-4 ml:min-w-unit-6 ml:w-unit-4 ml:h-unit-4"
+                  radius="full"
                   isIconOnly
-                  onPress={onOpen}
-                  size="lg"
+                  size="md"
                 >
-                  <Tooltip
-                    color="danger"
-                    content="Delete"
-                    closeDelay={0}
-                    size="sm"
-                    radius="lg"
-                    showArrow={true}
-                  >
-                    <p className="p-0 m-0 z-1">
-                      <IconDelete fill="#ff0000"  />
-                    </p>
-                  </Tooltip>
+                  -
+                </Button>
+                <p className="bgnone p-0 m-0 text-sm font-semibold ">7</p>
+
+                <Button
+                  className="bgnone 3xl:w-unit-10 3xl:h-unit-8 3xl:min-h-unit-8 2xl:w-unit-10 2xl:h-unit-8 2xl:min-h-unit-8 xl:w-unit-10 xl:h-unit-8 xl:min-h-unit-8 lg:w-unit-10 lg:h-unit-8 lg:min-h-unit-8 ml:min-h-unit-6 xm:min-h-unit-6 mm:min-h-unit-6 xm:min-w-unit-6 xm:w-unit-4 xm:h-unit-4 mm:min-w-unit-6 mm:w-unit-4 mm:h-unit-4 ml:min-w-unit-6 ml:w-unit-4 ml:h-unit-4"
+                  radius="full"
+                  isIconOnly
+                  size="md"
+                >
+                  +
                 </Button>
               </div>
+
+              {/* <div className="text-sm text-danger cursor-pointer active:opacity-50"> xm:h-unit-4 ml:h-unit-4 mm:h-unit-4 xm:w-unit-4 mm:w-unit-4 ml::w-unit-4*/}
+              <Button
+                className="bgnone  lg:w-unit-10 lg:h-unit-10 lg:min-h-unit-8 ml:min-h-unit-6 xm:min-h-unit-6 mm:min-h-unit-6 xm:min-w-unit-6 xm:w-unit-4 xm:h-unit-4 mm:min-w-unit-6 mm:w-unit-4 mm:h-unit-4 ml:min-w-unit-6 ml:w-unit-4 ml:h-unit-4"
+                isIconOnly
+                onPress={onOpen}
+                size="md"
+              >
+                <IconDelete fill="#ff0000" />
+                {/* <Tooltip
+                  color="danger"
+                  content="Delete"
+                  closeDelay={0}
+                  size="sm"
+                  radius="lg"
+                  showArrow={true}
+                >
+                  <p className="p-0 m-0">
+                    
+                  </p>
+                </Tooltip> */}
+              </Button>
+              {/* </div> */}
             </div>
           );
         default:
-          return cellValue;
+          return <p className="m-0 p-0">{cellValue}</p>;
       }
     },
     []
@@ -277,26 +276,29 @@ export const BuyCard = (props: any) => {
         isOpen={props.isOpen}
         onClose={props.onClose}
         size={"5xl"}
-        // backdrop="opaque"
         shadow="md"
+        placement="bottom"
+        backdrop="blur"
+        scrollBehavior="inside"
       >
         <ModalContent className="pb-3">
           <>
             <ModalHeader></ModalHeader>
-            <ModalBody className="p-0 m-0 mt-2 ">
-              <div className="flex px-0 ">
-                <div className="w-2/3 mx-2">
+            <ModalBody className=" p-0 m-0 mt-1 ">
+              <div className="grid xm:grid-cols-1 mm:grid-cols-1  sm:grid-cols-1 ml:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 3xl:grid-cols-2 4xl:grid-cols-2">
+                <div className="">
                   <Table
-                    isStriped
+                    isStriped 
                     classNames={{
-                      base: "max-h-[360px] overflow-scroll",
-                      table: "min-h-[300px]",
+                      base: " xm:max-h-[250px] mm:max-h-[250px] ml:max-h-[250px] md:max-h-[340px] lg:max-h-[340px] xl:max-h-[340px] 2xl:max-h-[340px] 3xl:max-h-[340px] 3xl:max-h-[340px] overflow-scroll",
+                      table:
+                        "xm:min-h-[350px] ml:min-h-[350px] mm:min-h-[350px] lg:min-h-[340px] md:max-h-[340px] xl:max-h-[340px] 2xl:max-h-[340px] 3xl:max-h-[340px] 3xl:max-h-[340px] ",
                     }}
                   >
-                    <TableHeader columns={columns} className="m-0">
+                    <TableHeader columns={columns} className="">
                       {(column) => (
                         <TableColumn
-                          className="ps-1 m-0"
+                          className="ps-0 m-0"
                           key={column.uid}
                           align={column.uid === "actions" ? "center" : "start"}
                         >
@@ -317,7 +319,26 @@ export const BuyCard = (props: any) => {
                       )}
                     </TableBody>
                   </Table>
-                  <div className="items-center flex justify-center">
+                  <div className="items-center flex justify-center ">
+                    <Button
+                      size="sm"
+                      color="primary"
+                      className="me-3"
+                      // className="ml:min-h-unit-6 xm:min-h-unit-6 mm:min-h-unit-6 xm:min-w-unit-6 xm:w-unit-4 xm:h-unit-4 mm:min-w-unit-6 mm:w-unit-4 mm:h-unit-4 ml:min-w-unit-6 ml:w-unit-4 ml:h-unit-4"
+                    >
+                      Clear Cart
+                    </Button>
+                    <Button
+                      size="sm"
+                      color="primary"
+                      variant="bordered"
+                      className="ms-3"
+                      // className="ml:min-h-unit-6 xm:min-h-unit-6 mm:min-h-unit-6 xm:min-w-unit-6 xm:w-unit-4 xm:h-unit-4 mm:min-w-unit-6 mm:w-unit-4 mm:h-unit-4 ml:min-w-unit-6 ml:w-unit-4 ml:h-unit-4"
+                    >
+                      Buy More Items
+                    </Button>
+                  </div>
+                  {/* <div className="items-center flex justify-center">
                     <ModalFooter>
                       <Button size="sm" color="primary" className="me-5">
                         Clear Cart
@@ -326,9 +347,98 @@ export const BuyCard = (props: any) => {
                         Buy More Items
                       </Button>
                     </ModalFooter>
+                  </div> */}
+                </div>
+                <div>
+                  <div className=" BuycarBg mx-3">
+                    <div className="flex justify-between py-1 mx-3 font-medium text-sm m-1">
+                      <div>Total Products (4 Items )</div>
+                      <div> Rs : 5050</div>
+                    </div>
+                    <div className="flex justify-between py-1 mx-3 font-medium text-sm m-1">
+                      <div>Discount</div>
+                      <div> 100%</div>
+                    </div>
+                    <div className="flex justify-between py-1 mx-3 font-medium text-sm m-1">
+                      <div>Delivery Charge</div>
+                      <div> Free</div>
+                    </div>
+                    <Divider orientation="horizontal" className="my-3.5" />
+                    <div className="flex justify-between py-1 mx-3 text-base font-medium  m-1">
+                      <div>Total Amount</div>
+                      <div> Rs. 3500</div>
+                    </div>
+                    <Divider orientation="horizontal" className="my-2" />
+                    <div className="paymetoptionBg mx-3 mt-2 rounded-lg">
+                      <div className="font-medium paymetoption text-base mx-3 pb-2 pt-2">
+                        Payment Options
+                      </div>
+                      <RadioGroup className="w-full">
+                        <div className="flex  justify-between items-center mx-3 w-full">
+                          <div className="w-2/4 m-1 items-center">
+                            <Radio
+                              value=" Google-Pay "
+                              size="sm"
+                              className="items-center"
+                            >
+                              Google Pay
+                            </Radio>
+                          </div>
+                          <div className="w-2/4 m-1 items-center">
+                            <Radio
+                              value="Phone-Pay"
+                              size="sm"
+                              className="items-center"
+                            >
+                              Phone Pay
+                            </Radio>
+                          </div>
+                        </div>
+                        <div className="flex  justify-between items-center mx-3 w-full">
+                          <div className="w-2/4 m-1 items-center">
+                            <Radio
+                              value=" Debit-Card"
+                              size="sm"
+                              className="items-center"
+                            >
+                              Debit Card
+                            </Radio>
+                          </div>
+                          <div className="w-2/4 m-1 items-center">
+                            <Radio
+                              value="Credit-Card"
+                              size="sm"
+                              className="items-center"
+                            >
+                              Credit Card
+                            </Radio>
+                          </div>
+                        </div>
+                        <div className="justify-between mx-3 flex w-full items-center">
+                          <div className="w-2/4 m-1 items-center">
+                            <Radio
+                              value="Cash-on-Delivery"
+                              size="sm"
+                              className="items-center"
+                            >
+                              Cash on Delivery
+                            </Radio>
+                          </div>
+                        </div>
+                      </RadioGroup>
+                      <div className="flex items-center justify-center mt-4 mb-1">
+                        <Button size="sm" color="primary" className="me-5">
+                          Book Order
+                        </Button>
+                        <Button size="sm" color="primary" variant="bordered">
+                          Back To Shop
+                        </Button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="w-1/3 BuycarBg mx-4">
+
+                {/* <div className=" BuycarBg mx-4">
                   <div className="flex justify-between py-1 mx-3 font-medium text-sm m-2.5">
                     <div>Total Products (4 Items )</div>
                     <div> Rs : 5050</div>
@@ -413,7 +523,7 @@ export const BuyCard = (props: any) => {
                       </Button>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </ModalBody>
           </>
@@ -421,7 +531,13 @@ export const BuyCard = (props: any) => {
       </Modal>
 
       <>
-        <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="md">
+        <Modal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          size="md"
+          placement="center"
+          backdrop="blur"
+        >
           <ModalContent>
             {(onClose) => (
               <>

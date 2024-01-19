@@ -32,7 +32,7 @@ export const NavBar = () => {
             </Link>
           </div>
           <div className="col-span-10">
-            <Input
+            {/* <Input
               label="Search"
               // color="primary"
               isClearable
@@ -64,10 +64,10 @@ export const NavBar = () => {
               startContent={
                 <NavSearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
               }
-            />
+            /> */}
           </div>
         </div>
-        <div className="col-span-8 flex justify-between">
+        <div className=" md:col-span-8 flex justify-between">
           <div>
             <Link href={"/Pages/Store"}>
               <Button color="primary" className="w-100">
