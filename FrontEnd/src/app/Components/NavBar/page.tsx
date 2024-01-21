@@ -17,9 +17,9 @@ export const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <div className="grid grid-cols-12 justify-between navBarStyle gap-4 items-center p-3">
-        <div className="grid grid-cols-12 gap-2 col-span-4 items-center">
-          <div className="col-span-2 text-center">
+      <div className="flex justify-between navBarStyle gap-4 items-center p-3">
+        <div className="items-center flex justify-between w-webkit-fill-available">
+          <div className="text-center">
             <Link href={"/"}>
               <Button
                 isIconOnly
@@ -31,13 +31,12 @@ export const NavBar = () => {
               </Button>
             </Link>
           </div>
-          <div className="col-span-10">
-            {/* <Input
-              label="Search"
-              // color="primary"
+          <div className="xm:hidden md:block w-webkit-fill-available">
+            <Input
               isClearable
               radius="lg"
               size="sm"
+              className="ms-2"
               classNames={{
                 label: "text-white",
                 input: [
@@ -64,34 +63,19 @@ export const NavBar = () => {
               startContent={
                 <NavSearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
               }
-            /> */}
+            />
           </div>
         </div>
-        <div className=" md:col-span-8 flex justify-between">
-          <div>
-            <Link href={"/Pages/Store"}>
-              <Button color="primary" className="w-100">
-                Store View
-              </Button>
-            </Link>
-          </div>
-          <div>
-            <Link href={"/Pages/Product"}>
-              <Button color="primary" className="w-100">
-                Product View
-              </Button>
-            </Link>
-          </div>
-          <div>
-            <Link href={"/Pages/Vendor"}>
-              <Button color="primary" className="w-100">
-                Vendor View
-              </Button>
-            </Link>
-          </div>
-          <div>
-            <Button color="primary" className="w-100">
-              Map View
+        <div className="flex justify-between">
+          <div className="md:hidden">
+            <Button
+              onPress={() => onOpen()}
+              isIconOnly
+              color="warning"
+              aria-label="Like"
+              className="bg-warning-900"
+            >
+              <NavSearchIcon />
             </Button>
           </div>
           <div>
@@ -108,6 +92,34 @@ export const NavBar = () => {
           <div>
             <Login />
           </div>
+        </div>
+      </div>
+      <div className="justify-between flex overflow-auto mt-2">
+        <div>
+          <Link href={"/Pages/Store"}>
+            <Button color="primary" className="w-100">
+              Store View
+            </Button>
+          </Link>
+        </div>
+        <div>
+          <Link href={"/Pages/Product"}>
+            <Button color="primary" className="w-100">
+              Product View
+            </Button>
+          </Link>
+        </div>
+        <div>
+          <Link href={"/Pages/Vendor"}>
+            <Button color="primary" className="w-100">
+              Vendor View
+            </Button>
+          </Link>
+        </div>
+        <div>
+          <Button color="primary" className="w-100">
+            Map View
+          </Button>
         </div>
       </div>
       <InfoCard isOpen={isOpen} onClose={onClose} />

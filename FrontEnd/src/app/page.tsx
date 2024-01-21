@@ -44,9 +44,9 @@ const onSubmit = (data) => {
 }
   return (
     <>
-      {/* <StoreCard /> */}
+      <StoreCard />
       {/* <VisitCard /> */}
-      <DynamicForm fields={FormFields} onSubmit={onSubmit} />
+      {/* <DynamicForm fields={FormFields} onSubmit={onSubmit} /> */}
     </>
   );
 }
