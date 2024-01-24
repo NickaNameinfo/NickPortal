@@ -59,7 +59,7 @@ export const StoreHeaderCard = () => {
               variant="shadow"
               isIconOnly
               aria-label="Like"
-              className="Iconwhatsup  ml:min-w-unit-8 ml:w-unit-8 ml:h-unit-8 mm:min-w-unit-8 mm:w-unit-8 mm:h-unit-8 xm:min-w-unit-6 xm:w-unit-6 xm:h-unit-6"
+              className="Iconwhatsup ml:min-w-unit-8 ml:w-unit-8 ml:h-unit-8 mm:min-w-unit-8 mm:w-unit-8 mm:h-unit-8 xm:min-w-unit-6 xm:w-unit-6 xm:h-unit-6"
               size="md"
             >
               <Iconwhatsup
