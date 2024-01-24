@@ -2,7 +2,11 @@ import {
   Accordion,
   AccordionItem,
   Button,
+  Card,
+  CardBody,
+  CardHeader,
   Checkbox,
+  Image,
   Switch,
   cn,
 } from "@nextui-org/react";
@@ -118,7 +122,29 @@ export const SideNavbar = () => {
           href="#"
           className="flex items-center justify-between px-4 border-b-2 border-b-white text-gray-900 dark:text-white group logoCls"
         >
-          <span className="">Logo</span>{" "}
+          {/* <span className="">Logo</span>{" "} */}
+          <div>
+            <Card className="p-0 m-0">
+              <Image
+                alt="Woman listing to music"
+                className="object-cover  max-h-[40px] min-w-[140px]"
+                height={30}
+                width={140}
+                src="https://nextui-docs-v2.vercel.app/images/album-cover.png"
+              />
+              {/* <CardHeader className="p-0 m-0"></CardHeader> */}
+              <CardBody className="p-0 m-0">
+                {/* <Image
+                  isZoomed
+                  alt="Here no Image"
+                  className="w-full object-cover max-h-[40px] min-w-[140px]"
+                  src="https://nextui-docs-v2.vercel.app/images/album-cover.png"
+                  // height={30}
+                  // width={140}
+                /> */}
+              </CardBody>
+            </Card>
+          </div>
           {mobileExpand ? (
             <span onClick={() => setMobileExpand((prev) => !prev)}>
               <IconHome />
@@ -150,14 +176,16 @@ export const SideNavbar = () => {
                           )}
                           <Switch
                             color="secondary"
+                            // size="lg"
                             defaultSelected
                             classNames={{
-                              wrapper: "p-0 h-4 overflow-visible",
+                              wrapper: "p-0 h-5 w-9 overflow-visible",
                               thumb: cn(
-                                "w-6 h-6 border-2 shadow-lg",
+                                "w-4 h-4 border-2 shadow-lg",
                                 "group-data-[hover=true]:border-secondary",
                                 //selected
-                                "group-data-[selected=true]:ml-6 bg-secondary",
+                                "group-data-[selected=true]:ml-4  bg-secondary",
+
                                 // pressed
                                 "group-data-[pressed=true]:w-7",
                                 "group-data-[selected]:group-data-[pressed]:ml-4"

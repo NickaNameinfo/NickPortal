@@ -44,7 +44,8 @@ const onSubmit = (data) => {
 }
   return (
     <>
-      <StoreCard />
+    {/* check box , redio btn , dropdoen (next ui auto cmpt)  */}
+      <StoreCard />  
       {/* <VisitCard /> */}
       {/* <DynamicForm fields={FormFields} onSubmit={onSubmit} /> */}
     </>
