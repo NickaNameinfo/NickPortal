@@ -1,65 +1,58 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("VendorAddresses", {
+    await queryInterface.createTable("StoreAddresses", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      vendorId: {
+      store_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Vendors",
+          model: "Stores",
           key: "id",
         },
         onDelete: "CASCADE",
-        field: "vendor_Id",
       },
-      vendorName: {
+      store_name: {
+        type: Sequelize.STRING,
+      },
+      street_address_1: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "vendor_Name",
       },
-      streetAddress1: {
+      street_address_2: {
         type: Sequelize.STRING,
-        allowNull: false,
-        field: "street_Address1",
-      },
-      streetAddress2: {
-        type: Sequelize.STRING,
-        field: "street_Address2",
       },
       city: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      stateProvidence: {
+      state_province: {
         type: Sequelize.STRING,
-        allowNull: false,
-        field: "state_Providence",
       },
-      postalCode: {
+      postal_code: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "post_Code",
       },
       country: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      creationDate: {
+      creation_date: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
-        field: "creation_Date",
       },
-      lastUpdated: {
+      last_updated: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
-        field: "last_updated",
+      },
+      verified_date: {
+        type: Sequelize.DATE,
       },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("VendorAddresses");
+    await queryInterface.dropTable("StoreAddresses");
   },
 };
