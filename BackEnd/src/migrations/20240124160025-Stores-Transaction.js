@@ -1,70 +1,64 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("VendorTransactions", {
+    await queryInterface.createTable("StoresTransactions", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      transactionId: {
+      transaction_store_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true, // Can be adjusted based on your preference
+      },
+      transaction_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Transactions",
+          model: "Transactions", // Assuming a "Transactions" table
           key: "id",
         },
         onDelete: "CASCADE",
-        field: "transaction_ID",
       },
-      vendorId: {
+      store_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Vendors",
+          model: "Stores",
           key: "id",
         },
         onDelete: "CASCADE",
-        field: "vendor_ID",
       },
-      transactionDate: {
+      transaction_date: {
         type: Sequelize.DATE,
         allowNull: false,
-        field: "transaction_Date",
       },
-      totalAmount: {
-        type: Sequelize.DECIMAL(10, 2),
+      total_amount: {
+        type: Sequelize.DECIMAL(10, 2), // Adjust precision as needed
         allowNull: false,
-        field: "total_amount",
       },
-      paymentMethod: {
+      payment_method: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "payment_Method",
       },
-      paymentStatus: {
+      payment_status: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "payment_Status",
       },
-      invoiceNumber: {
-        type: Sequelize.STRING,
-        field: "invoice_Number",
+      invoice_number: {
+        type: Sequelize.STRING, // Assuming string format
       },
-      notesComments: {
+      notes_comments: {
         type: Sequelize.TEXT,
-        field: "notes_comments",
       },
-      creationDate: {
+      creation_date: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
-        field: "creation_date",
       },
-      lastUpdated: {
+      last_updated: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
-        field: "last_updated",
       },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("VendorTransactions");
+    await queryInterface.dropTable("StoresTransactions");
   },
 };
