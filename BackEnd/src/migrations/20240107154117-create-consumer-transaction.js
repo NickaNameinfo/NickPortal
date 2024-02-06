@@ -10,7 +10,6 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       transactionConsumerId: {
-        //need to refer from the main transaction table (Pending)
         type: Sequelize.INTEGER,
         field: "transaction_consumer_id",
       },

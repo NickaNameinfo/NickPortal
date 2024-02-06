@@ -1,33 +1,51 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
-  class ConsumerTransaction extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
+  class ConsumerTransactions extends Model {
+    static associate(models) {}
   }
-  ConsumerTransaction.init({
-    transactionConsumerId: DataTypes.INTEGER,
-    transactionId: DataTypes.INTEGER,
-    customerId: DataTypes.INTEGER,
-    transactionDate: DataTypes.DATE,
-    totalAmount: DataTypes.DECIMAL,
-    paymentMethod: DataTypes.STRING,
-    paymentStatus: DataTypes.STRING,
-    invoiceNumber: DataTypes.STRING,
-    notes: DataTypes.TEXT,
-    creationDate: DataTypes.DATE,
-    lastUpdated: DataTypes.DATE
-  }, {
-    sequelize,
-    modelName: 'ConsumerTransaction',
-  });
-  return ConsumerTransaction;
+
+  ConsumerTransactions.init(
+    {
+      totalAmount: {
+        type: Sequelize.DECIMAL,
+        field: "total_amount",
+      },
+      paymentMethod: {
+        type: Sequelize.STRING,
+        field: "payment_method",
+      },
+      paymentStatus: {
+        type: Sequelize.STRING,
+        field: "payment_status",
+      },
+      invoiceNumber: {
+        type: Sequelize.STRING,
+        field: "invoice_number",
+      },
+      notes: {
+        type: Sequelize.TEXT,
+        field: "notes",
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        field: "created_at",
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        field: "updated_at",
+      },
+    },
+    {
+      sequelize,
+      modelName: "ConsumerTransactions",
+      timestamps: true,
+      underscored: true,
+    }
+  );
+
+  return ConsumerTransactions;
 };

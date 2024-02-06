@@ -1,67 +1,77 @@
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("StoreAddresses", {
+"use strict";
+const { Model } = require("sequelize");
+
+module.exports = (sequelize, DataTypes) => {
+  class VendorAddresses extends Model {
+    static associate(models) {}
+  }
+
+  VendorAddresses.init(
+    {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      store_id: {
+      vendorId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Stores",
+          model: "Vendors",
           key: "id",
         },
         onDelete: "CASCADE",
-        field: "store_ID",
+        field: "vendor_Id",
       },
-      store_name: {
-        type: Sequelize.STRING,
-        field: "store_name",
-      },
-      street_address_1: {
+      vendorName: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "street_address1",
+        field: "vendor_Name",
       },
-      street_address_2: {
+      streetAddress1: {
         type: Sequelize.STRING,
-        field: "street_address2",
+        allowNull: false,
+        field: "street_Address1",
+      },
+      streetAddress2: {
+        type: Sequelize.STRING,
+        field: "street_Address2",
       },
       city: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      state_province: {
-        type: Sequelize.STRING,
-        field: "state_province",
-      },
-      postal_code: {
+      stateProvidence: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "postal_code",
+        field: "state_Providence",
+      },
+      postalCode: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        field: "post_Code",
       },
       country: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      creation_date: {
+      creationDate: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
-        field: "creation_date",
+        field: "creation_Date",
       },
-      last_updated: {
+      lastUpdated: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
         field: "last_updated",
       },
-      verified_date: {
-        type: Sequelize.DATE,
-        field: "verified_date",
-      },
-    });
-  },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("StoreAddresses");
-  },
+    },
+    {
+      sequelize,
+      modelName: "VendorAddresses",
+      timestamps: true,
+      underscored: true,
+    }
+  );
+
+  return VendorAddresses;
 };

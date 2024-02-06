@@ -1,6 +1,13 @@
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Products", {
+"use strict";
+const { Model } = require("sequelize");
+
+module.exports = (sequelize, DataTypes) => {
+  class Products extends Model {
+    static associate(models) {}
+  }
+
+  Products.init(
+    {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -102,9 +109,14 @@ module.exports = {
         type: Sequelize.STRING,
         field: "barcode_upc",
       },
-    });
-  },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Products");
-  },
+    },
+    {
+      sequelize,
+      modelName: "Products",
+      timestamps: true,
+      underscored: true,
+    }
+  );
+
+  return Products;
 };
