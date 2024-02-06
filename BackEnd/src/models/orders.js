@@ -1,6 +1,13 @@
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Invoices", {
+"use strict";
+const { Model } = require("sequelize");
+
+module.exports = (sequelize, DataTypes) => {
+  class Orders extends Model {
+    static associate(models) {}
+  }
+
+  Orders.init(
+    {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -15,16 +22,19 @@ module.exports = {
         onDelete: "CASCADE",
         field: "consumer_id",
       },
-      invoice_date: {
+      order_date: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.NOW,
-        field: "invoice_date",
+        field: "order_date",
       },
-      due_date: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        field: "due_date",
+      shipment_address_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "ConsumerAddresses",
+          key: "id",
+        },
+        field: "shipment_address_id",
       },
       billing_address_id: {
         type: Sequelize.INTEGER,
@@ -39,32 +49,36 @@ module.exports = {
         allowNull: false,
         field: "total_amount",
       },
-      tax_amount: {
-        type: Sequelize.DECIMAL(10, 2),
-        field: "tax_amount",
+      payment_method: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        field: "payment_method",
+      },
+      payment_status: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        field: "payment_status",
+      },
+      order_status: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        field: "order_status",
+      },
+      shipping_method: {
+        type: Sequelize.STRING,
+        field: "shipping_method",
+      },
+      tracking_number: {
+        type: Sequelize.STRING,
+        field: "tracking_number",
       },
       discount_amount: {
         type: Sequelize.DECIMAL(10, 2),
         field: "discount_amount",
       },
-      amount_paid: {
+      tax_amount: {
         type: Sequelize.DECIMAL(10, 2),
-        defaultValue: 0.0,
-        field: "amount_paid",
-      },
-      payment_status: {
-        type: Sequelize.ENUM("paid", "partially_paid", "unpaid"),
-        allowNull: false,
-        field: "payment_status",
-      },
-      invoice_status: {
-        type: Sequelize.ENUM("issued", "sent", "overdue"),
-        allowNull: false,
-        field: "invoice_status",
-      },
-      payment_method: {
-        type: Sequelize.STRING,
-        field: "payment_method",
+        field: "tax_amount",
       },
       notes_comments: {
         type: Sequelize.TEXT,
@@ -80,9 +94,14 @@ module.exports = {
         defaultValue: Sequelize.NOW,
         field: "last_updated",
       },
-    });
-  },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Invoices");
-  },
+    },
+    {
+      sequelize,
+      modelName: "Orders",
+      timestamps: true,
+      underscored: true,
+    }
+  );
+
+  return Orders;
 };

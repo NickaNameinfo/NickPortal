@@ -10,27 +10,31 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "Items", // Assuming a "Items" table for general items
+          model: "Items",
           key: "id",
         },
         onDelete: "CASCADE",
+        field: "item_id",
       },
       quantity_added: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        defaultValue: 1, // Assuming default addition of 1 item
+        defaultValue: 1,
+        field: "quantity_added",
       },
       add_date: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.NOW,
+        field: "add_date",
       },
       added_by: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Users", // Assuming a "Users" table
+          model: "Users",
           key: "id",
         },
+        field: "added_by",
       },
       reason: {
         type: Sequelize.STRING,
@@ -38,23 +42,27 @@ module.exports = {
       location_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Locations", // Assuming a "Locations" table
+          model: "Locations",
           key: "id",
         },
+        field: "location_id",
       },
       cost: {
         type: Sequelize.DECIMAL(10, 2),
       },
       notes_comments: {
         type: Sequelize.TEXT,
+        field: "notes_comments",
       },
       creation_date: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
+        field: "creation_date",
       },
       last_updated: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
+        field: "last_updated",
       },
     });
   },

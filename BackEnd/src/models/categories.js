@@ -1,6 +1,13 @@
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Categories", {
+"use strict";
+const { Model } = require("sequelize");
+
+module.exports = (sequelize, DataTypes) => {
+  class Categories extends Model {
+    static associate(models) {}
+  }
+
+  Categories.init(
+    {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -47,9 +54,14 @@ module.exports = {
         defaultValue: true,
         field: "is_active",
       },
-    });
-  },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Categories");
-  },
+    },
+    {
+      sequelize,
+      modelName: "Categories",
+      timestamps: true,
+      underscored: true,
+    }
+  );
+
+  return Categories;
 };

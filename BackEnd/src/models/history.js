@@ -1,6 +1,13 @@
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("History", {
+"use strict";
+const { Model } = require("sequelize");
+
+module.exports = (sequelize, DataTypes) => {
+  class History extends Model {
+    static associate(models) {}
+  }
+
+  History.init(
+    {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -41,14 +48,19 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Consumer", // Assuming a "Consumer" table
+          model: "Consumer",
           key: "id",
         },
         field: "user_id",
       },
-    });
-  },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("History");
-  },
+    },
+    {
+      sequelize,
+      modelName: "History",
+      timestamps: true,
+      underscored: true,
+    }
+  );
+
+  return History;
 };

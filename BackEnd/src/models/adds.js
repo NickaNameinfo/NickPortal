@@ -1,20 +1,17 @@
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("TransactionAdds", {
+"use strict";
+const { Model } = require("sequelize");
+
+module.exports = (sequelize, DataTypes) => {
+  class Adds extends Model {
+    static associate(models) {}
+  }
+
+  Adds.init(
+    {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-      },
-      transaction_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: "Transactions",
-          key: "id",
-        },
-        onDelete: "CASCADE",
-        field: "transaction_id",
       },
       item_id: {
         type: Sequelize.INTEGER,
@@ -41,10 +38,13 @@ module.exports = {
       added_by: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Consumer",
+          model: "Users",
           key: "id",
         },
         field: "added_by",
+      },
+      reason: {
+        type: Sequelize.STRING,
       },
       location_id: {
         type: Sequelize.INTEGER,
@@ -71,9 +71,14 @@ module.exports = {
         defaultValue: Sequelize.NOW,
         field: "last_updated",
       },
-    });
-  },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("TransactionAdds");
-  },
+    },
+    {
+      sequelize,
+      modelName: "Adds",
+      timestamps: true,
+      underscored: true,
+    }
+  );
+
+  return Adds;
 };

@@ -1,6 +1,13 @@
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("TransactionAdds", {
+"use strict";
+const { Model } = require("sequelize");
+
+module.exports = (sequelize, DataTypes) => {
+  class TransactionAdds extends Model {
+    static associate(models) {}
+  }
+
+  TransactionAdds.init(
+    {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -71,9 +78,14 @@ module.exports = {
         defaultValue: Sequelize.NOW,
         field: "last_updated",
       },
-    });
-  },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("TransactionAdds");
-  },
+    },
+    {
+      sequelize,
+      modelName: "TransactionAdds",
+      timestamps: true,
+      underscored: true,
+    }
+  );
+
+  return TransactionAdds;
 };

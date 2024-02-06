@@ -1,75 +1,82 @@
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("StoresTransactions", {
+"use strict";
+const { Model } = require("sequelize");
+
+module.exports = (sequelize, DataTypes) => {
+  class VendorTransactions extends Model {
+    static associate(models) {}
+  }
+
+  VendorTransactions.init(
+    {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      transaction_store_id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        field: "transaction_store_id",
-      },
-      transaction_id: {
+      transactionId: {
         type: Sequelize.INTEGER,
         references: {
           model: "Transactions",
           key: "id",
         },
         onDelete: "CASCADE",
-        field: "transactions_id",
+        field: "transaction_ID",
       },
-      store_id: {
+      vendorId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Stores",
+          model: "Vendors",
           key: "id",
         },
         onDelete: "CASCADE",
-        field: "store_id",
+        field: "vendor_ID",
       },
-      transaction_date: {
+      transactionDate: {
         type: Sequelize.DATE,
         allowNull: false,
-        field: "transaction_date",
+        field: "transaction_Date",
       },
-      total_amount: {
+      totalAmount: {
         type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
         field: "total_amount",
       },
-      payment_method: {
+      paymentMethod: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "payment_method",
+        field: "payment_Method",
       },
-      payment_status: {
+      paymentStatus: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "payment_status",
+        field: "payment_Status",
       },
-      invoice_number: {
+      invoiceNumber: {
         type: Sequelize.STRING,
-        field: "invoice_number",
+        field: "invoice_Number",
       },
-      notes_comments: {
+      notesComments: {
         type: Sequelize.TEXT,
         field: "notes_comments",
       },
-      creation_date: {
+      creationDate: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
         field: "creation_date",
       },
-      last_updated: {
+      lastUpdated: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
         field: "last_updated",
       },
-    });
-  },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("StoresTransactions");
-  },
+    },
+    {
+      sequelize,
+      modelName: "VendorTransactions",
+      timestamps: true,
+      underscored: true,
+    }
+  );
+
+  return VendorTransactions;
 };
