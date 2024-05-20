@@ -1,110 +1,88 @@
 "use strict";
-const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class Vendors extends Model {
-    static associate(models) {}
-  }
-
-  Vendors.init(
+  const Vendor = sequelize.define(
+    "Vendor",
     {
       id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
+        type: DataTypes.INTEGER,
+        allowNull: false,
         autoIncrement: true,
+        primaryKey: true,
       },
-      vendorId: {
-        type: Sequelize.STRING,
-        unique: true,
+      vendor_name: {
+        type: DataTypes.STRING,
         allowNull: false,
-        field: "vendor_Id",
       },
-      vendorName: {
-        type: Sequelize.STRING,
+      address_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        field: "vendor_Name",
       },
-      addressId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "VendorAddresses",
-          key: "id",
+      contact_person: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      email_address: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          isEmail: true,
         },
-        onDelete: "CASCADE",
-        field: "address_Id",
       },
-      contactPerson: {
-        type: Sequelize.STRING,
-        field: "contact_Person",
+      phone_number: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
-      emailAddress: {
-        type: Sequelize.STRING,
-        field: "email_Address",
+      alternative_number: {
+        type: DataTypes.STRING,
       },
-      phoneNumber: {
-        type: Sequelize.STRING,
-        field: "phone_Number",
+      tax_id: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
-      taxId: {
-        type: Sequelize.STRING,
-        field: "tax_Id",
+      payment_terms: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
-      paymentTerms: {
-        type: Sequelize.STRING,
-        field: "payment_Terms",
+      preferred_currency: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
-      preferredCurrency: {
-        type: Sequelize.STRING,
-        field: "preferred_currency",
+      services_provided: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
-      productsServicesProvided: {
-        type: Sequelize.TEXT,
-        field: "products_Services_Provided",
+      total_stores: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
-      leadTime: {
-        type: Sequelize.INTEGER,
-        field: "lead_Time",
+      number_category: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
-      notesComments: {
-        type: Sequelize.TEXT,
-        field: "notes_Comments",
+      vendor_image: {
+        type: DataTypes.STRING,
       },
-      creationDate: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
-        field: "creation_Date",
+      vendor_document: {
+        type: DataTypes.STRING,
       },
-      lastUpdated: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
-        field: "last_updated",
-      },
-      totalStores: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-        field: "total_stores",
-      },
-      numberCategory: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-        field: "number_categories",
-      },
-      vendorImage: {
-        type: Sequelize.STRING,
-        field: "vendor_image",
-      },
-      vendorDocuments: {
-        type: Sequelize.TEXT,
-        field: "vendor_documents",
+      status: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
     },
     {
-      sequelize,
-      modelName: "Vendors",
+      tableName: "Vendors",
       timestamps: true,
-      underscored: true,
+      createdAt: "createdAt",
+      updatedAt: "updatedAt",
     }
   );
 
-  return Vendors;
+  Vendor.associate = function (models) {
+    // associations can be defined here
+    // e.g., Vendor.belongsTo(models.Address, { foreignKey: 'address_id' });
+  };
+
+  return Vendor;
 };

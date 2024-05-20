@@ -1,26 +1,17 @@
 "use strict";
-const { Model } = require("sequelize");
+const { Model, Sequelize } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class VendorTransactions extends Model {
+  class VendorAddresses extends Model {
     static associate(models) {}
   }
 
-  VendorTransactions.init(
+  VendorAddresses.init(
     {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-      },
-      transactionId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Transactions",
-          key: "id",
-        },
-        onDelete: "CASCADE",
-        field: "transaction_ID",
       },
       vendorId: {
         type: Sequelize.INTEGER,
@@ -29,40 +20,44 @@ module.exports = (sequelize, DataTypes) => {
           key: "id",
         },
         onDelete: "CASCADE",
-        field: "vendor_ID",
+        field: "vendor_Id",
       },
-      transactionDate: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        field: "transaction_Date",
-      },
-      totalAmount: {
-        type: Sequelize.DECIMAL(10, 2),
-        allowNull: false,
-        field: "total_amount",
-      },
-      paymentMethod: {
+      vendorName: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "payment_Method",
+        field: "vendor_Name",
       },
-      paymentStatus: {
+      streetAddress1: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "payment_Status",
+        field: "street_Address1",
       },
-      invoiceNumber: {
+      streetAddress2: {
         type: Sequelize.STRING,
-        field: "invoice_Number",
+        field: "street_Address2",
       },
-      notesComments: {
-        type: Sequelize.TEXT,
-        field: "notes_comments",
+      city: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      stateProvidence: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        field: "state_Providence",
+      },
+      postalCode: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        field: "post_Code",
+      },
+      country: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       creationDate: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
-        field: "creation_date",
+        field: "creation_Date",
       },
       lastUpdated: {
         type: Sequelize.DATE,
@@ -72,11 +67,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "VendorTransactions",
+      modelName: "VendorAddresses",
       timestamps: true,
       underscored: true,
     }
   );
 
-  return VendorTransactions;
+  return VendorAddresses;
 };

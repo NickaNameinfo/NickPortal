@@ -14,13 +14,9 @@ app.use(express.json());
 
 require("./connectDB");
 
-const customerRouter = require("./src/routes/customer");
-const courseRouter = require("./src/routes/course");
-const checkoutRouter = require("./src/routes/checkout");
+const vendorRoutes = require("./src/routes/vendorRoutes");
 
-app.use("/api/v1/customers", customerRouter);
-app.use("/api/v1/courses", courseRouter);
-app.use("/api/v1/checkout", checkoutRouter);
+app.use("/api/v1//vendors", vendorRoutes);
 
 // handle error
 app.use((error, req, res, next) => {

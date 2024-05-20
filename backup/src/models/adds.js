@@ -1,65 +1,65 @@
 "use strict";
-const { Model } = require("sequelize");
+const { Model, Sequelize } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class Requests extends Model {
+  class Adds extends Model {
     static associate(models) {}
   }
 
-  Requests.init(
+  Adds.init(
     {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      requester_id: {
+      item_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
-          model: "Users", // Assuming a "Users" table
+          model: "Items",
           key: "id",
         },
         onDelete: "CASCADE",
-        field: "product_id",
+        field: "item_id",
       },
-      request_type: {
-        type: Sequelize.STRING,
+      quantity_added: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        field: "request_type",
+        defaultValue: 1,
+        field: "quantity_added",
       },
-      subject: {
-        type: Sequelize.STRING,
+      add_date: {
+        type: Sequelize.DATE,
         allowNull: false,
+        defaultValue: Sequelize.NOW,
+        field: "add_date",
       },
-      description: {
-        type: Sequelize.TEXT,
-      },
-      status: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      priority: {
-        type: Sequelize.ENUM("low", "medium", "high"),
-        allowNull: false,
-      },
-      assigned_to: {
+      added_by: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Users", // Assuming users can be assigned requests
+          model: "Users",
           key: "id",
         },
-        field: "assigned_to",
+        field: "added_by",
       },
-      due_date: {
-        type: Sequelize.DATE,
-        field: "due_date",
+      reason: {
+        type: Sequelize.STRING,
       },
-      completion_date: {
-        type: Sequelize.DATE,
-        field: "completion_date",
+      location_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Locations",
+          key: "id",
+        },
+        field: "location_id",
       },
-      attachments: {
+      cost: {
+        type: Sequelize.DECIMAL(10, 2),
+      },
+      notes_comments: {
         type: Sequelize.TEXT,
+        field: "notes_comments",
       },
       creation_date: {
         type: Sequelize.DATE,
@@ -74,11 +74,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Requests",
+      modelName: "Adds",
       timestamps: true,
       underscored: true,
     }
   );
 
-  return Requests;
+  return Adds;
 };

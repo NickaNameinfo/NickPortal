@@ -1,17 +1,27 @@
 "use strict";
-const { Model } = require("sequelize");
+const { Model, Sequelize } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class Adds extends Model {
+  class TransactionAdds extends Model {
     static associate(models) {}
   }
 
-  Adds.init(
+  TransactionAdds.init(
     {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
+      },
+      transaction_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "Transactions",
+          key: "id",
+        },
+        onDelete: "CASCADE",
+        field: "transaction_id",
       },
       item_id: {
         type: Sequelize.INTEGER,
@@ -38,13 +48,10 @@ module.exports = (sequelize, DataTypes) => {
       added_by: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Users",
+          model: "Consumer",
           key: "id",
         },
         field: "added_by",
-      },
-      reason: {
-        type: Sequelize.STRING,
       },
       location_id: {
         type: Sequelize.INTEGER,
@@ -74,11 +81,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Adds",
+      modelName: "TransactionAdds",
       timestamps: true,
       underscored: true,
     }
   );
 
-  return Adds;
+  return TransactionAdds;
 };

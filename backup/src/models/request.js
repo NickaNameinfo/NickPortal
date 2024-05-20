@@ -1,56 +1,65 @@
 "use strict";
-const { Model } = require("sequelize");
+const { Model, Sequelize } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class StoreAddresses extends Model {
+  class Requests extends Model {
     static associate(models) {}
   }
 
-  StoreAddresses.init(
+  Requests.init(
     {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      store_id: {
+      requester_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Stores",
+          model: "Users", // Assuming a "Users" table
           key: "id",
         },
         onDelete: "CASCADE",
-        field: "store_ID",
+        field: "product_id",
       },
-      store_name: {
-        type: Sequelize.STRING,
-        field: "store_name",
-      },
-      street_address_1: {
+      request_type: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "street_address1",
+        field: "request_type",
       },
-      street_address_2: {
-        type: Sequelize.STRING,
-        field: "street_address2",
-      },
-      city: {
+      subject: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      state_province: {
-        type: Sequelize.STRING,
-        field: "state_province",
+      description: {
+        type: Sequelize.TEXT,
       },
-      postal_code: {
+      status: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "postal_code",
       },
-      country: {
-        type: Sequelize.STRING,
+      priority: {
+        type: Sequelize.ENUM("low", "medium", "high"),
         allowNull: false,
+      },
+      assigned_to: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Users", // Assuming users can be assigned requests
+          key: "id",
+        },
+        field: "assigned_to",
+      },
+      due_date: {
+        type: Sequelize.DATE,
+        field: "due_date",
+      },
+      completion_date: {
+        type: Sequelize.DATE,
+        field: "completion_date",
+      },
+      attachments: {
+        type: Sequelize.TEXT,
       },
       creation_date: {
         type: Sequelize.DATE,
@@ -62,18 +71,14 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: Sequelize.NOW,
         field: "last_updated",
       },
-      verified_date: {
-        type: Sequelize.DATE,
-        field: "verified_date",
-      },
     },
     {
       sequelize,
-      modelName: "StoreAddresses",
+      modelName: "Requests",
       timestamps: true,
       underscored: true,
     }
   );
 
-  return StoreAddresses;
+  return Requests;
 };

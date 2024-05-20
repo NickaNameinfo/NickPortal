@@ -1,48 +1,45 @@
 "use strict";
-const { Model } = require("sequelize");
+const { Model, Sequelize } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class Orders extends Model {
+  class StoresTransactions extends Model {
     static associate(models) {}
   }
 
-  Orders.init(
+  StoresTransactions.init(
     {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      customer_id: {
+      transaction_store_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        field: "transaction_store_id",
+      },
+      transaction_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Consumer",
+          model: "Transactions",
           key: "id",
         },
         onDelete: "CASCADE",
-        field: "consumer_id",
+        field: "transactions_id",
       },
-      order_date: {
+      store_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Stores",
+          key: "id",
+        },
+        onDelete: "CASCADE",
+        field: "store_id",
+      },
+      transaction_date: {
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.NOW,
-        field: "order_date",
-      },
-      shipment_address_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "ConsumerAddresses",
-          key: "id",
-        },
-        field: "shipment_address_id",
-      },
-      billing_address_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "ConsumerAddresses",
-          key: "id",
-        },
-        field: "billing_address_id",
+        field: "transaction_date",
       },
       total_amount: {
         type: Sequelize.DECIMAL(10, 2),
@@ -59,26 +56,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         field: "payment_status",
       },
-      order_status: {
+      invoice_number: {
         type: Sequelize.STRING,
-        allowNull: false,
-        field: "order_status",
-      },
-      shipping_method: {
-        type: Sequelize.STRING,
-        field: "shipping_method",
-      },
-      tracking_number: {
-        type: Sequelize.STRING,
-        field: "tracking_number",
-      },
-      discount_amount: {
-        type: Sequelize.DECIMAL(10, 2),
-        field: "discount_amount",
-      },
-      tax_amount: {
-        type: Sequelize.DECIMAL(10, 2),
-        field: "tax_amount",
+        field: "invoice_number",
       },
       notes_comments: {
         type: Sequelize.TEXT,
@@ -97,11 +77,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Orders",
+      modelName: "StoresTransactions",
       timestamps: true,
       underscored: true,
     }
   );
 
-  return Orders;
+  return StoresTransactions;
 };

@@ -1,77 +1,79 @@
 "use strict";
-const { Model } = require("sequelize");
+const { Model, Sequelize } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class VendorAddresses extends Model {
+  class StoreAddresses extends Model {
     static associate(models) {}
   }
 
-  VendorAddresses.init(
+  StoreAddresses.init(
     {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      vendorId: {
+      store_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Vendors",
+          model: "Stores",
           key: "id",
         },
         onDelete: "CASCADE",
-        field: "vendor_Id",
+        field: "store_ID",
       },
-      vendorName: {
+      store_name: {
+        type: Sequelize.STRING,
+        field: "store_name",
+      },
+      street_address_1: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "vendor_Name",
+        field: "street_address1",
       },
-      streetAddress1: {
+      street_address_2: {
         type: Sequelize.STRING,
-        allowNull: false,
-        field: "street_Address1",
-      },
-      streetAddress2: {
-        type: Sequelize.STRING,
-        field: "street_Address2",
+        field: "street_address2",
       },
       city: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      stateProvidence: {
+      state_province: {
         type: Sequelize.STRING,
-        allowNull: false,
-        field: "state_Providence",
+        field: "state_province",
       },
-      postalCode: {
+      postal_code: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: "post_Code",
+        field: "postal_code",
       },
       country: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      creationDate: {
+      creation_date: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
-        field: "creation_Date",
+        field: "creation_date",
       },
-      lastUpdated: {
+      last_updated: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
         field: "last_updated",
       },
+      verified_date: {
+        type: Sequelize.DATE,
+        field: "verified_date",
+      },
     },
     {
       sequelize,
-      modelName: "VendorAddresses",
+      modelName: "StoreAddresses",
       timestamps: true,
       underscored: true,
     }
   );
 
-  return VendorAddresses;
+  return StoreAddresses;
 };
