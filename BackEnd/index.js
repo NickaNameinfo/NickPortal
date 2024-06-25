@@ -16,7 +16,7 @@ require("./connectDB");
 
 const vendorRoutes = require("./src/routes/vendorRoutes");
 
-app.use("/api/v1//vendors", vendorRoutes);
+app.use("/api/v1/vendors", vendorRoutes);
 
 // handle error
 app.use((error, req, res, next) => {

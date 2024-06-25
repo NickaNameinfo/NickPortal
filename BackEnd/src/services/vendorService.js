@@ -17,7 +17,7 @@ const vendorService = {
 
     const { rows, count } = await Vendor.findAndCountAll(options);
     return {
-      vendors: rows,
+      data: rows,
       total: count,
       page,
       pages: Math.ceil(count / limit),

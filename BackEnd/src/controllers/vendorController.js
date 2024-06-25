@@ -37,8 +37,8 @@ const vendorController = {
   create: async (req, res, next) => {
     let inputData = {
       ...req.body,
-      vendor_image: req.files.vendor_image?.[0]?.path,
-      vendor_document: req.files.vendor_document?.[0]?.path,
+      vendor_image: req.files ? req.files.vendor_image?.[0]?.path : "",
+      vendor_document: req.files ? req.files.vendor_document?.[0]?.path : "",
     };
     try {
       const data = await vendorService.create(inputData);
@@ -53,8 +53,8 @@ const vendorController = {
       const { id } = req.params;
       let inputData = {
         ...req.body,
-        vendor_image: req.files.vendor_image?.[0]?.path,
-        vendor_document: req.files.vendor_document?.[0]?.path,
+        vendor_image: req.filesh ? req.files.vendor_image?.[0]?.path : "",
+        vendor_document: req.files ? req.files.vendor_document?.[0]?.path : "",
       };
       const data = await vendorService.updateById(id, inputData);
       return res.json({ success: true, data });
